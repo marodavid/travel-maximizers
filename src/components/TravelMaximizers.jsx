@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { MapPin, Calendar, Users, Star, ArrowRight, Menu, X, Globe } from 'lucide-react';
 
+
 const translations = {
   es: {
     nav: {
@@ -283,15 +284,8 @@ export default function TravelMaximizers() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLangMenu = () => setIsLangMenuOpen(!isLangMenuOpen);
 
-  const photos = [
-    'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1528127269322-539801943592?w=800&h=600&fit=crop',
-    'https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&h=600&fit=crop'
-  ];
+  const imageModules = import.meta.glob('/src/assets/images/about-us/*.{jpg,jpeg,png,webp}', { eager: true });
+  const photos = Object.values(imageModules).map(mod => mod.default);
 
   const nextPhoto = () => {
     setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
