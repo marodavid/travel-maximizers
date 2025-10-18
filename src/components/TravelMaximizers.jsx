@@ -64,6 +64,22 @@ const translations = {
       description: 'Agenda una consulta gratuita y descubre cómo podemos transformar tu experiencia de viaje',
       button: 'Consulta Gratuita'
     },
+    form: {
+      title: 'Solicita tu Consulta Gratuita',
+      subtitle: 'Cuéntanos sobre el viaje de tus sueños y te ayudaremos a hacerlo realidad',
+      name: 'Nombre completo',
+      namePlaceholder: 'Tu nombre',
+      email: 'Correo electrónico',
+      emailPlaceholder: 'tu@email.com',
+      whatsapp: 'WhatsApp (opcional)',
+      whatsappPlaceholder: '+34 600 000 000',
+      dream: 'Cuéntanos sobre tu viaje soñado',
+      dreamPlaceholder: 'Destino deseado, fechas aproximadas, tipo de experiencias que buscas, presupuesto estimado...',
+      submit: 'Enviar Solicitud',
+      submitting: 'Enviando...',
+      successMessage: '¡Gracias! Hemos recibido tu solicitud. Te contactaremos pronto.',
+      close: 'Cerrar'
+    },
     footer: {
       tagline: 'Tu solo viaja, nosotros te lo organizamos todo a medida',
       description: 'Maximizamos tus experiencias de viaje con consultoría personalizada y planificación experta.',
@@ -134,6 +150,22 @@ const translations = {
       title: 'Ready to maximize your next trip?',
       description: 'Schedule a free consultation and discover how we can transform your travel experience',
       button: 'Free Consultation'
+    },
+    form: {
+      title: 'Request Your Free Consultation',
+      subtitle: 'Tell us about your dream trip and we\'ll help you make it a reality',
+      name: 'Full name',
+      namePlaceholder: 'Your name',
+      email: 'Email address',
+      emailPlaceholder: 'your@email.com',
+      whatsapp: 'WhatsApp (optional)',
+      whatsappPlaceholder: '+1 234 567 8900',
+      dream: 'Tell us about your dream trip',
+      dreamPlaceholder: 'Desired destination, approximate dates, type of experiences you\'re looking for, estimated budget...',
+      submit: 'Submit Request',
+      submitting: 'Sending...',
+      successMessage: 'Thank you! We\'ve received your request. We\'ll contact you soon.',
+      close: 'Close'
     },
     footer: {
       tagline: 'You just travel, we organize everything tailored for you',
@@ -206,6 +238,22 @@ const translations = {
       description: 'Vereinbaren Sie eine kostenlose Beratung und entdecken Sie, wie wir Ihr Reiseerlebnis transformieren können',
       button: 'Kostenlose Beratung'
     },
+    form: {
+      title: 'Fordern Sie Ihre Kostenlose Beratung An',
+      subtitle: 'Erzählen Sie uns von Ihrer Traumreise und wir helfen Ihnen, sie Wirklichkeit werden zu lassen',
+      name: 'Vollständiger Name',
+      namePlaceholder: 'Ihr Name',
+      email: 'E-Mail-Adresse',
+      emailPlaceholder: 'ihre@email.de',
+      whatsapp: 'WhatsApp (optional)',
+      whatsappPlaceholder: '+49 123 456 7890',
+      dream: 'Erzählen Sie uns von Ihrer Traumreise',
+      dreamPlaceholder: 'Gewünschtes Reiseziel, ungefähre Daten, Art der Erlebnisse, die Sie suchen, geschätztes Budget...',
+      submit: 'Anfrage Senden',
+      submitting: 'Wird gesendet...',
+      successMessage: 'Vielen Dank! Wir haben Ihre Anfrage erhalten. Wir werden Sie bald kontaktieren.',
+      close: 'Schließen'
+    },
     footer: {
       tagline: 'Sie reisen einfach, wir organisieren alles maßgeschneidert für Sie',
       description: 'Wir maximieren Ihre Reiseerlebnisse mit persönlicher Beratung und Expertenplanung.',
@@ -222,6 +270,15 @@ export default function TravelMaximizers() {
   const [language, setLanguage] = useState('es');
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    whatsapp: '',
+    dream: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLangMenu = () => setIsLangMenuOpen(!isLangMenuOpen);
@@ -242,6 +299,66 @@ export default function TravelMaximizers() {
 
   const prevPhoto = () => {
     setCurrentPhotoIndex((prev) => (prev - 1 + photos.length) % photos.length);
+  };
+
+  const openForm = () => setIsFormOpen(true);
+  const closeForm = () => {
+    setIsFormOpen(false);
+    setSubmitMessage('');
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    
+    try {
+      // Configuración de EmailJS
+      const serviceID = 'service_jj938fo'; // Reemplazar con tu Service ID
+      const templateID = 'template_682geyg'; // Reemplazar con tu Template ID
+      const publicKey = 'NoLb_T8VJzvbVkLvt'; // Reemplazar con tu Public Key
+
+      // Parámetros del template
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        whatsapp: formData.whatsapp || 'No proporcionado',
+        dream_trip: formData.dream,
+        to_email: 'travelmaximizers@gmail.com',
+        reply_to: formData.email
+      };
+
+      // Enviar email usando EmailJS
+      const response = await window.emailjs.send(
+        serviceID,
+        templateID,
+        templateParams,
+        publicKey
+      );
+
+      if (response.status === 200) {
+        setSubmitMessage(t.form.successMessage);
+        setFormData({ name: '', email: '', whatsapp: '', dream: '' });
+        
+        // Cerrar el modal después de 3 segundos
+        setTimeout(() => {
+          closeForm();
+        }, 3000);
+      }
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      setSubmitMessage(t.form.errorMessage || 'Hubo un error al enviar el formulario. Por favor, intenta nuevamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const t = translations[language];
@@ -354,7 +471,10 @@ export default function TravelMaximizers() {
               {t.hero.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
-              <button className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all text-sm sm:text-base">
+              <button 
+                onClick={openForm}
+                className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all text-sm sm:text-base"
+              >
                 {t.hero.cta1}
               </button>
               <button className="border-2 border-emerald-600 text-emerald-600 px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-emerald-600 hover:text-white transition-colors text-sm sm:text-base">
@@ -364,6 +484,116 @@ export default function TravelMaximizers() {
           </div>
         </div>
       </section>
+
+      {/* Contact Form Modal */}
+      {isFormOpen && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div className="sticky top-0 bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-6 rounded-t-2xl">
+              <div className="flex justify-between items-start">
+                <div>
+                  <h3 className="text-2xl font-bold mb-2">{t.form.title}</h3>
+                  <p className="text-emerald-100 text-sm">{t.form.subtitle}</p>
+                </div>
+                <button 
+                  onClick={closeForm}
+                  className="text-white hover:bg-white/20 p-2 rounded-full transition-colors"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="p-6 space-y-5">
+              {submitMessage && (
+                <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-3 rounded-lg">
+                  {submitMessage}
+                </div>
+              )}
+
+              <div>
+                <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+                  {t.form.name} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  required
+                  placeholder={t.form.namePlaceholder}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+                  {t.form.email} <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  required
+                  placeholder={t.form.emailPlaceholder}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="whatsapp" className="block text-sm font-semibold text-gray-700 mb-2">
+                  {t.form.whatsapp}
+                </label>
+                <input
+                  type="tel"
+                  id="whatsapp"
+                  name="whatsapp"
+                  value={formData.whatsapp}
+                  onChange={handleInputChange}
+                  placeholder={t.form.whatsappPlaceholder}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="dream" className="block text-sm font-semibold text-gray-700 mb-2">
+                  {t.form.dream} <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="dream"
+                  name="dream"
+                  value={formData.dream}
+                  onChange={handleInputChange}
+                  required
+                  rows="5"
+                  placeholder={t.form.dreamPlaceholder}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none transition-all resize-none"
+                />
+              </div>
+
+              <div className="flex gap-3 pt-4">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="flex-1 bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                >
+                  {isSubmitting ? t.form.submitting : t.form.submit}
+                </button>
+                <button
+                  type="button"
+                  onClick={closeForm}
+                  className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-50 transition-colors"
+                >
+                  {t.form.close}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       {/* About Us Section */}
       <section id="nosotros" className="py-12 sm:py-16 lg:py-20 bg-white">
@@ -423,7 +653,10 @@ export default function TravelMaximizers() {
                 <p className="text-lg font-semibold text-gray-900 mb-4">
                   {t.about.cta}
                 </p>
-                <button className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all">
+                <button 
+                  onClick={openForm}
+                  className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all"
+                  >
                   {t.hero.cta1}
                 </button>
               </div>
@@ -544,7 +777,10 @@ export default function TravelMaximizers() {
                   ))}
                 </ul>
                 
-                <button className="w-full bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl transform group-hover:scale-105">
+                <button 
+                  onClick={openForm}
+                  className="w-full bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl transform group-hover:scale-105"
+                  >
                   {t.hero.cta1}
                 </button>
               </div>
@@ -579,7 +815,9 @@ export default function TravelMaximizers() {
                   ))}
                 </ul>
                 
-                <button className="w-full bg-gradient-to-r from-emerald-500 to-teal-700 text-white px-6 py-3 rounded-full font-semibold hover:from-emerald-600 hover:to-teal-800 transition-all shadow-lg hover:shadow-xl transform group-hover:scale-105">
+                <button 
+                  onClick={openForm}
+                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-700 text-white px-6 py-3 rounded-full font-semibold hover:from-emerald-600 hover:to-teal-800 transition-all shadow-lg hover:shadow-xl transform group-hover:scale-105">
                   {t.hero.cta1}
                 </button>
               </div>
@@ -658,7 +896,10 @@ export default function TravelMaximizers() {
           <p className="text-base sm:text-lg lg:text-xl text-emerald-100 mb-6 sm:mb-8">
             {t.cta.description}
           </p>
-          <button className="bg-white text-emerald-600 px-6 sm:px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all inline-flex items-center text-sm sm:text-base">
+          <button 
+            onClick={openForm}
+            className="bg-white text-emerald-600 px-6 sm:px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all inline-flex items-center text-sm sm:text-base"
+            >
             {t.cta.button}
             <ArrowRight className="ml-2" size={18} />
           </button>
