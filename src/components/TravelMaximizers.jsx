@@ -1,5 +1,29 @@
 import { useState } from 'react';
 import { MapPin, Calendar, Users, Star, ArrowRight, Menu, X, Globe } from 'lucide-react';
+import Slider from "react-slick";
+
+
+const settingsTestimonalSlider = {
+  dots: true,
+  arrows: true,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 4500,
+  speed: 600,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  pauseOnHover: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: { slidesToShow: 2 },
+    },
+    {
+      breakpoint: 640,
+      settings: { slidesToShow: 1 },
+    },
+  ],
+};
 
 
 const translations = {
@@ -57,8 +81,26 @@ const translations = {
     },
     testimonials: {
       title: 'Lo que dicen nuestros clientes',
-      quote: 'Travel Maximizers transformó completamente nuestra experiencia de viaje. La planificación fue perfecta y descubrimos lugares increíbles.',
-      role: 'Viajera frecuente'
+      quote1: 'Travel Maximizers transformó completamente nuestra experiencia de viaje. La planificación fue perfecta y descubrimos lugares increíbles.',
+      customer1: 'Laura Astorga',
+      logo1: 'LA',
+      role1: 'Laura Astorga',
+      quote2: '¡Increíble experiencia! Travel Maximizers entendió exactamente lo que queríamos desde el primer momento. Cada detalle del viaje estuvo perfectamente pensado y lograron que nuestras vacaciones fueran totalmente relajadas y sin estrés.',
+      customer2: 'Juan y Sonia',
+      logo2:'J&S',
+      role2: 'Juan y Sonia',
+      quote3: 'Gracias a Travel Maximizers vivimos un viaje inolvidable. No solo planificaron los traslados y hoteles, sino que nos recomendaron actividades únicas que nunca habríamos encontrado por nuestra cuenta. Se nota la pasión con la que trabajan.',
+      customer3: 'Adrian y Catherine',
+      logo3:'A&C',
+      role3: 'Adrian y Catherine',
+      quote4: 'Todo fue impecable: comunicación, organización y seguimiento. Nos sentimos acompañados en cada paso y disfrutamos de experiencias auténticas en cada destino. Sin duda, volveremos a confiar en ellos para nuestro próximo viaje.',
+      customer4: 'Maria Oliveras',
+      logo4: 'MA',
+      role4: 'Maria Oliveras',
+      quote5: 'Los chicos de Travel Maximizers superaron todas nuestras expectativas. Nos diseñaron un itinerario totalmente personalizado, equilibrando descanso, aventura y cultura. Sentimos que realmente aprovecharon al máximo nuestro tiempo de vacaciones.',
+      customer5: 'Luisa Abad',
+      logo5: 'LA',
+      role5: 'Luisa Abad',      
     },
     cta: {
       title: '¿Listo para maximizar tu próximo viaje?',
@@ -144,8 +186,21 @@ const translations = {
     },
     testimonials: {
       title: 'What our clients say',
-      quote: 'Travel Maximizers completely transformed our travel experience. The planning was perfect and we discovered incredible places.',
-      role: 'Frequent traveler'
+      quote1: 'Travel Maximizers completely transformed our travel experience. The planning was perfect and we discovered incredible places.',
+      customer1: 'Laura Astorga',
+      role1: 'Young couple',
+      quote2: 'Incredible experience! Travel Maximizers understood exactly what we wanted from the very beginning. Every detail of the trip was perfectly planned, and they made our vacation completely relaxing and stress-free.',
+      customer2: 'John and Sonia',
+      role2: 'John and Sonia',
+      quote3: 'Thanks to Travel Maximizers we had an unforgettable trip. They not only arranged our transfers and hotels, but also recommended unique activities we would never have found on our own. You can really feel the passion in their work.',
+      customer3: 'Adrian and Catherine',
+      role3: 'Adrian and Catherine',
+      quote4: 'Everything was flawless: communication, organization, and follow-up. We felt supported every step of the way and enjoyed authentic experiences in every destination. We’ll definitely trust them again for our next trip.',
+      customer4: 'Maria Oliveras',
+      role4: 'Maria Oliveras',
+      quote5: 'The team at Travel Maximizers exceeded all our expectations. They created a fully customized itinerary, balancing relaxation, adventure, and culture. We truly felt that our vacation time was maximized to the fullest.',
+      customer5: 'Luisa Abad',
+      role5: 'Luisa Abad',
     },
     cta: {
       title: 'Ready to maximize your next trip?',
@@ -231,8 +286,21 @@ const translations = {
     },
     testimonials: {
       title: 'Was unsere Kunden sagen',
-      quote: 'Travel Maximizers hat unser Reiseerlebnis komplett transformiert. Die Planung war perfekt und wir haben unglaubliche Orte entdeckt.',
-      role: 'Vielreisende'
+      quote1: 'Travel Maximizers hat unser Reiseerlebnis komplett transformiert. Die Planung war perfekt und wir haben unglaubliche Orte entdeckt.',
+      customer1: 'Laura Astorga',
+      role1: 'Pareja joven',
+      quote2: 'Unglaubliche Erfahrung! Travel Maximizers hat von Anfang an genau verstanden, was wir wollten. Jedes Detail der Reise war perfekt geplant, und unser Urlaub war völlig entspannt und stressfrei.',
+      role2: 'John nd Sonia',
+      customer2: 'John nd Sonia',
+      quote3: 'Dank Travel Maximizers hatten wir eine unvergessliche Reise. Sie organisierten nicht nur Transfers und Hotels, sondern empfahlen auch einzigartige Aktivitäten, die wir selbst nie gefunden hätten. Man spürt wirklich die Leidenschaft in ihrer Arbeit.',
+      customer3: 'Adrian und Catherine',
+      role3: 'Adrian und Catherine',
+      quote4: 'Alles war tadellos: Kommunikation, Organisation und Betreuung. Wir fühlten uns in jeder Phase gut begleitet und erlebten authentische Erfahrungen an jedem Reiseziel. Wir werden ihnen auf jeden Fall auch beim nächsten Mal vertrauen.',
+      customer4: 'Maria Oliveras',
+      role4: 'Maria Oliveras',
+      quote5: 'Das Team von Travel Maximizers hat all unsere Erwartungen übertroffen. Sie stellten eine vollständig personalisierte Reiseroute zusammen, die Entspannung, Abenteuer und Kultur perfekt ausbalancierte. Wir hatten das Gefühl, dass unsere Urlaubszeit wirklich optimal genutzt wurde.',
+      customer5: 'Luisa Abad',
+      role5: 'Luisa Abad',
     },
     cta: {
       title: 'Bereit, Ihre nächste Reise zu maximieren?',
@@ -855,29 +923,41 @@ export default function TravelMaximizers() {
             </h2>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-gray-50 rounded-xl p-5 sm:p-6">
-                <div className="flex mb-3 sm:mb-4">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <Star key={star} className="text-yellow-400 fill-current" size={18} />
-                  ))}
-                </div>
-                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
-                  "{t.testimonials.quote}"
-                </p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 bg-gradient-to-r from-emerald-600 to-teal-700 rounded-full flex items-center justify-center text-white font-semibold text-sm">
-                    M{i}
+          <Slider {...settingsTestimonalSlider}>
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="px-3">
+                <div className="bg-gray-50 rounded-xl p-5 sm:p-6 shadow-sm transition-transform hover:-translate-y-1 h-full flex flex-col justify-between">
+                  <div>
+                    <div className="flex mb-3 sm:mb-4">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <Star
+                          key={star}
+                          className="text-yellow-400 fill-current"
+                          size={18}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
+                      "{t.testimonials[`quote${i}`]}"
+                    </p>
                   </div>
-                  <div className="ml-3">
-                    <p className="font-semibold text-sm sm:text-base">María Cliente {i}</p>
-                    <p className="text-xs sm:text-sm text-gray-500">{t.testimonials.role}</p>
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 bg-gradient-to-r from-emerald-600 to-teal-700 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                      {t.testimonials[`logo${i}`]}
+                    </div>
+                    <div className="ml-3">
+                      <p className="font-semibold text-sm sm:text-base">
+                        {t.testimonials[`customer${i}`]}
+                      </p>
+                      <p className="text-xs sm:text-sm text-gray-500">
+                        {t.testimonials.role}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
-          </div>
+          </Slider>
         </div>
       </section>
 
