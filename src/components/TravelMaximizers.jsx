@@ -25,6 +25,20 @@ const settingsTestimonalSlider = {
   ],
 };
 
+const destinationKeys = [
+    "italia",
+    "jordania",
+    "tailandia",
+    "marruecos",
+    "colombia",
+    "panama",
+    "mexico",
+    "brasil",
+    "croacia",
+    "austria",
+    "oktoberfest",
+  ];
+
 
 const translations = {
   es: {
@@ -78,6 +92,56 @@ const translations = {
     video: {
       title: 'Descubre Cómo Maximizar tus Viajes',
       description: 'Conoce nuestra metodología y cómo podemos ayudarte a crear experiencias de viaje inolvidables'
+    },
+    suggestedDestinations: {
+      title: 'Destinos Sugeridos',
+      subtitle: 'Descubre algunos de los destinos más increíbles que hemos explorado y que podemos ayudarte a vivir',
+      destinations: {
+        italia: {
+          name: 'Italia',
+          description: 'Arte renacentista, gastronomía sublime y paisajes de ensueño. Desde Roma hasta la Toscana, Italia te cautivará con su historia milenaria y su belleza incomparable.'
+        },
+        jordania: {
+          name: 'Jordania',
+          description: 'Petra, Wadi Rum y el Mar Muerto. Un viaje en el tiempo a través de desiertos rojizos y antiguas civilizaciones que te dejarán sin aliento.'
+        },
+        tailandia: {
+          name: 'Tailandia',
+          description: 'Templos dorados, playas paradisíacas y una cultura fascinante. Bangkok, las islas del sur y el norte montañoso te esperan con experiencias únicas.'
+        },
+        marruecos: {
+          name: 'Marruecos',
+          description: 'Zocos coloridos, desiertos del Sahara y ciudades imperiales. Marruecos te envuelve con sus aromas, sabores y una hospitalidad inigualable.'
+        },
+        colombia: {
+          name: 'Colombia',
+          description: 'Desde Cartagena colonial hasta el Eje Cafetero. Diversidad natural, cultura vibrante y una alegría contagiosa que te hará enamorarte del país.'
+        },
+        panama: {
+          name: 'Panamá',
+          description: 'Canal interoceánico, playas caribeñas y selva tropical. Panamá combina modernidad y naturaleza en un destino compacto y fascinante.'
+        },
+        mexico: {
+          name: 'México',
+          description: 'Ruinas mayas, playas de ensueño y gastronomía reconocida mundialmente. México ofrece color, tradición y una riqueza cultural inigualable.'
+        },
+        brasil: {
+          name: 'Brasil',
+          description: 'Amazonas, Cristo Redentor y playas de Copacabana. Brasil vibra con samba, fútbol y una naturaleza exuberante que te sorprenderá.'
+        },
+        croacia: {
+          name: 'Croacia',
+          description: 'Costa dálmata, islas paradisíacas y ciudades medievales. Croacia te conquista con sus aguas cristalinas y su patrimonio histórico único.'
+        },
+        austria: {
+          name: 'Austria',
+          description: 'Viena imperial, Alpes nevados y música clásica. Austria combina elegancia europea con naturaleza alpina en un escenario de cuento.'
+        },
+        oktoberfest: {
+          name: 'Oktoberfest',
+          description: 'La fiesta más grande del mundo en Múnich. Vive la auténtica cultura bávara, cerveza tradicional y una atmósfera festiva incomparable.'
+        }
+      }
     },
     testimonials: {
       title: 'Lo que dicen nuestros clientes',
@@ -184,6 +248,56 @@ const translations = {
       title: 'Discover How to Maximize Your Travels',
       description: 'Learn about our methodology and how we can help you create unforgettable travel experiences'
     },
+    suggestedDestinations: {
+      title: 'Suggested Destinations',
+      subtitle: 'Discover some of the most incredible places we’ve explored and can help you experience',
+      destinations: {
+        italia: {
+          name: 'Italy',
+          description: 'Renaissance art, exquisite cuisine, and dreamlike landscapes. From Rome to Tuscany, Italy will captivate you with its ancient history and unmatched beauty.'
+        },
+        jordania: {
+          name: 'Jordan',
+          description: 'Petra, Wadi Rum, and the Dead Sea. A journey through time across red deserts and ancient civilizations that will take your breath away.'
+        },
+        tailandia: {
+          name: 'Thailand',
+          description: 'Golden temples, paradise beaches, and a fascinating culture. Bangkok, the southern islands, and the mountainous north await with unique experiences.'
+        },
+        marruecos: {
+          name: 'Morocco',
+          description: 'Colorful souks, Sahara deserts, and imperial cities. Morocco envelops you with its aromas, flavors, and unmatched hospitality.'
+        },
+        colombia: {
+          name: 'Colombia',
+          description: 'From colonial Cartagena to the Coffee Region. Natural diversity, vibrant culture, and contagious joy that will make you fall in love with the country.'
+        },
+        panama: {
+          name: 'Panama',
+          description: 'Interoceanic canal, Caribbean beaches, and tropical rainforest. Panama blends modernity and nature in a compact and fascinating destination.'
+        },
+        mexico: {
+          name: 'Mexico',
+          description: 'Mayan ruins, dream beaches, and world-famous cuisine. Mexico offers color, tradition, and unmatched cultural richness.'
+        },
+        brasil: {
+          name: 'Brazil',
+          description: 'Amazon rainforest, Christ the Redeemer, and Copacabana beaches. Brazil vibrates with samba, football, and exuberant nature that will amaze you.'
+        },
+        croacia: {
+          name: 'Croatia',
+          description: 'Dalmatian coast, paradise islands, and medieval cities. Croatia will win you over with its crystal-clear waters and unique historical heritage.'
+        },
+        austria: {
+          name: 'Austria',
+          description: 'Imperial Vienna, snowy Alps, and classical music. Austria combines European elegance with alpine nature in a fairytale setting.'
+        },
+        oktoberfest: {
+          name: 'Oktoberfest',
+          description: 'The world’s largest festival in Munich. Experience authentic Bavarian culture, traditional beer, and an incomparable festive atmosphere.'
+        }
+      }
+    },
     testimonials: {
       title: 'What our clients say',
       quote1: 'Travel Maximizers completely transformed our travel experience. The planning was perfect and we discovered incredible places.',
@@ -283,6 +397,56 @@ const translations = {
     video: {
       title: 'Entdecken Sie, wie Sie Ihre Reisen maximieren',
       description: 'Lernen Sie unsere Methodik kennen und wie wir Ihnen helfen können, unvergessliche Reiseerlebnisse zu schaffen'
+    },
+    suggestedDestinations: {
+      title: 'Empfohlene Reiseziele',
+      subtitle: 'Entdecke die unglaublichsten Orte, die wir bereist haben und die du mit uns erleben kannst',
+      destinations: {
+        italia: {
+          name: 'Italien',
+          description: 'Renaissancekunst, hervorragende Küche und traumhafte Landschaften. Von Rom bis in die Toskana – Italien begeistert mit seiner jahrtausendealten Geschichte und unvergleichlicher Schönheit.'
+        },
+        jordania: {
+          name: 'Jordanien',
+          description: 'Petra, Wadi Rum und das Tote Meer. Eine Reise durch die Zeit über rote Wüsten und alte Zivilisationen, die dich sprachlos machen wird.'
+        },
+        tailandia: {
+          name: 'Thailand',
+          description: 'Goldene Tempel, paradiesische Strände und eine faszinierende Kultur. Bangkok, die südlichen Inseln und das bergige Nordthailand erwarten dich mit einzigartigen Erlebnissen.'
+        },
+        marruecos: {
+          name: 'Marokko',
+          description: 'Bunte Souks, die Sahara und königliche Städte. Marokko verzaubert mit seinen Düften, Geschmäckern und seiner unvergleichlichen Gastfreundschaft.'
+        },
+        colombia: {
+          name: 'Kolumbien',
+          description: 'Von der kolonialen Stadt Cartagena bis zur Kaffeeregion. Natürliche Vielfalt, lebendige Kultur und ansteckende Lebensfreude werden dich in das Land verlieben lassen.'
+        },
+        panama: {
+          name: 'Panama',
+          description: 'Interozeanischer Kanal, karibische Strände und tropischer Regenwald. Panama vereint Modernität und Natur in einem kompakten, faszinierenden Reiseziel.'
+        },
+        mexico: {
+          name: 'Mexiko',
+          description: 'Maya-Ruinen, traumhafte Strände und weltweit berühmte Küche. Mexiko bietet Farbe, Tradition und einen unvergleichlichen kulturellen Reichtum.'
+        },
+        brasil: {
+          name: 'Brasilien',
+          description: 'Amazonas, Christusstatue und Copacabana-Strände. Brasilien pulsiert mit Samba, Fußball und einer üppigen Natur, die dich überraschen wird.'
+        },
+        croacia: {
+          name: 'Kroatien',
+          description: 'Dalmatinische Küste, paradiesische Inseln und mittelalterliche Städte. Kroatien begeistert mit kristallklarem Wasser und einzigartigem historischen Erbe.'
+        },
+        austria: {
+          name: 'Österreich',
+          description: 'Kaiserliches Wien, verschneite Alpen und klassische Musik. Österreich vereint europäische Eleganz mit alpiner Natur in einer märchenhaften Kulisse.'
+        },
+        oktoberfest: {
+          name: 'Oktoberfest',
+          description: 'Das größte Volksfest der Welt in München. Erlebe echte bayerische Kultur, traditionelles Bier und eine unvergleichliche Feststimmung.'
+        }
+      }
     },
     testimonials: {
       title: 'Was unsere Kunden sagen',
@@ -913,6 +1077,74 @@ export default function TravelMaximizers() {
           </div>
         </div>
       </section>
+      
+      {/* Destinos Sugeridos */}   
+      <section id="suggested-destinations" className="w-full py-12 md:py-24 lg:py-32">
+        <div className="container px-4 md:px-6">
+          {/* Encabezado */}
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline">
+                {t.suggestedDestinations.title}
+              </h2>
+              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                {t.suggestedDestinations.subtitle}
+              </p>
+            </div>
+          </div>
+
+          {/* Tarjetas */}
+          <div className="mx-auto mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:max-w-7xl">
+            {destinationKeys.map((key) => {
+              const dest = t.suggestedDestinations.destinations[key];
+              if (!dest) return null;
+
+              const imageUrl = `/src/assets/images/destinations/${key}.jpg`;
+
+              return (
+                <div key={key} className="group h-96 w-full [perspective:1000px]">
+                  <div className="relative h-full w-full rounded-xl shadow-lg transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+
+                    {/* Front */}
+                    <div className="absolute inset-0">
+                      <img
+                        src={imageUrl}
+                        alt={dest.name}
+                        loading="lazy"
+                        className="h-full w-full rounded-xl object-cover shadow-lg"
+                      />
+                      <div className="absolute inset-0 flex items-center justify-center rounded-xl bg-black/40 p-6">
+                        <h3 className="text-2xl font-bold text-white font-headline text-center">
+                          {dest.name}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Back */}
+                    <div
+                      className="absolute inset-0 h-full w-full rounded-xl bg-cover bg-center p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden]"
+                      style={{
+                        backgroundImage: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(${imageUrl})`,
+                      }}
+                    >
+                      <div className="flex min-h-full flex-col items-center justify-center">
+                        <h3 className="text-2xl font-bold font-headline text-white">
+                          {dest.name}
+                        </h3>
+                        <p className="mt-4 text-base text-gray-200">
+                          {dest.description}
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+      {/* FIN Destinos Sugeridos */}
 
       {/* Testimonials */}
       <section id="servicios" className="py-12 sm:py-16 lg:py-20 bg-white">
