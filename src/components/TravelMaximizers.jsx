@@ -36,9 +36,11 @@ const destinationKeys = [
     "brasil",
     "croacia",
     "austria",
+    "japon",
     "oktoberfest",
   ];
 
+  const videoUrl = "https://www.youtube.com/embed/55Q2c8J0bCY"; 
 
 const translations = {
   es: {
@@ -61,8 +63,8 @@ const translations = {
         countriesLabel: 'Países Visitados',
         experience: '15+',
         experienceLabel: 'Años Viajando',
-        clients: '200+',
-        clientsLabel: 'Viajeros Felices'
+        trips: '200+',
+        tripsLabel: 'Viajes Disfrutados'
       }
     },
     hero: {
@@ -73,20 +75,73 @@ const translations = {
       cta1: 'Consulta Gratuita',
       cta2: 'Ver Servicios'
     },
-    basicServices: {
-      title: 'Nuestros Servicios Básicos',
-      subtitle: 'Elige la opción perfecta para tu próxima aventura',
-      consulting: {
-        title: 'Consultoría',
-        description: '¡Deja que seamos tu mejor amigo organizador de viajes! Nos encargamos de vuelos, hoteles en ubicaciones premium y diseñamos un itinerario completamente personalizado. ¡Ahorra tiempo, dinero y evita el estrés con nuestra experiencia!',
-        badge: 'Todo Incluido',
-        features: ['Vuelos optimizados', 'Hoteles seleccionados', 'Itinerario personalizado', 'Ahorro garantizado']
+    services: {
+      title: 'Nuestros Servicios',
+      subtitle: 'Elige la opción perfecta para maximizar tu próxima aventura',
+      
+      guarantee: {
+        title: 'Nuestra Garantía',
+        description: 'Te ahorrarás más dinero y tiempo contratándonos que haciéndolo por tu cuenta. Si no quedas satisfecho, trabajaremos hasta que lo estés.'
       },
+      
       advisory: {
-        title: 'Asesoría',
+        name: 'Asesoría',
+        badge: 'Popular',
+        tagline: 'Descubre tu destino como un local',
+        
+        // Pricing info
+        price: '40',
+        currency: '€',
+        priceAlt: '$45',
+        period: 'por sesión',
+        
+        // Description (emocional - de basicServices)
         description: '¿Necesitas un experto que te guíe? Agenda una sesión 1:1 con nosotros para descubrir los secretos de tu destino y tomar las mejores decisiones. ¡Maximiza tu presupuesto y vive una aventura épica e inolvidable!',
-        badge: 'Expertos a tu Lado',
-        features: ['Sesión personalizada', 'Consejos de experto', 'Decisiones inteligentes', 'Máximo ahorro']
+        
+        // Features para display (resumidas)
+        featuresTitle: 'Lo que incluye:',
+        summaryFeatures: [
+          'Sesión 1:1 personalizada de 60 minutos',
+          'Guía experta del destino y secretos locales',
+          'Consejos prácticos para maximizar tu presupuesto',
+          'Recomendaciones únicas y soporte por email'
+        ],
+        
+        cta: 'Reservar Asesoría'
+      },
+      
+      consulting: {
+        name: 'Consultoría',
+        badge: 'Más Completo',
+        tagline: 'Tu viaje perfecto, de principio a fin',
+        
+        // Pricing info
+        price: '30',
+        currency: '€',
+        priceAlt: '$35',
+        period: 'por noche de viaje',
+        highlight: 'Ejemplo: Viaje de 10 noches = 300€ / $350',
+        
+        // Description
+        description: '¡Deja que seamos tu mejor amigo organizador de viajes! Nos encargamos de vuelos, hoteles en ubicaciones premium y diseñamos un itinerario completamente personalizado. ¡Ahorra tiempo, dinero y evita el estrés con nuestra experiencia!',
+        
+        // Features para display (resumidas)
+        featuresTitle: 'Todo incluido:',
+        summaryFeatures: [
+          'Búsqueda y reserva de vuelos optimizados',
+          'Hoteles premium en ubicaciones estratégicas',
+          'Itinerario personalizado completo día a día',
+          'Experiencias únicas y soporte durante el viaje',
+          'Ahorro garantizado vs. reservar por tu cuenta'
+        ],
+        
+        cta: 'Comenzar Consultoría'
+      },
+      
+      ctaSection: {
+        title: '¿No estás seguro de qué plan elegir?',
+        description: 'Agenda una consulta gratuita de 15 minutos y te ayudaremos a encontrar la mejor opción para tu viaje',
+        button: 'Consulta Gratuita'
       }
     },
     video: {
@@ -137,6 +192,10 @@ const translations = {
           name: 'Austria',
           description: 'Viena imperial, Alpes nevados y música clásica. Austria combina elegancia europea con naturaleza alpina en un escenario de cuento.'
         },
+        japon: {
+          name: 'Japón',
+          description: 'Templos milenarios, tecnología futurista y naturaleza exuberante. Desde Tokio hasta Kioto, Japón fusiona tradición ancestral con modernidad extrema en una experiencia que desafía los sentidos.'
+        },
         oktoberfest: {
           name: 'Oktoberfest',
           description: 'La fiesta más grande del mundo en Múnich. Vive la auténtica cultura bávara, cerveza tradicional y una atmósfera festiva incomparable.'
@@ -175,7 +234,7 @@ const translations = {
       title: 'Solicita tu Consulta Gratuita',
       subtitle: 'Cuéntanos sobre el viaje de tus sueños y te ayudaremos a hacerlo realidad',
       name: 'Nombre completo',
-      namePlaceholder: 'Tu nombre',
+      namePlaceholder: 'Tu nombre', 
       email: 'Correo electrónico',
       emailPlaceholder: 'tu@email.com',
       whatsapp: 'WhatsApp (opcional)',
@@ -216,8 +275,8 @@ const translations = {
         countriesLabel: 'Countries Visited',
         experience: '15+',
         experienceLabel: 'Years Traveling',
-        clients: '200+',
-        clientsLabel: 'Happy Travelers'
+        trips: '200+',
+        tripsLabel: 'Enjoyed Trips'
       }
     },
     hero: {
@@ -228,20 +287,73 @@ const translations = {
       cta1: 'Free Consultation',
       cta2: 'View Services'
     },
-    basicServices: {
-      title: 'Our Basic Services',
-      subtitle: 'Choose the perfect option for your next adventure',
-      consulting: {
-        title: 'Consulting',
-        description: 'Let us be your ultimate travel organizer! We handle flights, hotels in premium locations, and design a completely personalized itinerary. Save time, money, and skip the stress with our expertise!',
-        badge: 'All Inclusive',
-        features: ['Optimized flights', 'Curated hotels', 'Custom itinerary', 'Guaranteed savings']
+    services: {
+      title: 'Our Services',
+      subtitle: 'Choose the perfect option to maximize your next adventure',
+      
+      guarantee: {
+        title: 'Our Guarantee',
+        description: "You'll save more money and time by hiring us than doing it yourself. If you're not satisfied, we'll work until you are."
       },
+      
       advisory: {
-        title: 'Advisory',
+        name: 'Advisory',
+        badge: 'Popular',
+        tagline: 'Discover your destination like a local',
+        
+        // Pricing info
+        price: '45',
+        currency: '$',
+        priceAlt: '€40',
+        period: 'per session',
+        
+        // Description (emotional - from basicServices)
         description: 'Need an expert to guide you? Book a 1:1 session with us to uncover your destination secrets and make the smartest decisions. Maximize your budget and live an epic, unforgettable adventure!',
-        badge: 'Experts by Your Side',
-        features: ['Personal session', 'Expert advice', 'Smart decisions', 'Maximum savings']
+        
+        // Features for display (summarized)
+        featuresTitle: 'What\'s included:',
+        summaryFeatures: [
+          'Personalized 1:1 session of 60 minutes',
+          'Expert destination guide and local secrets',
+          'Practical tips to maximize your budget',
+          'Unique recommendations and email support'
+        ],
+        
+        cta: 'Book Advisory'
+      },
+      
+      consulting: {
+        name: 'Consulting',
+        badge: 'Most Complete',
+        tagline: 'Your perfect trip, from start to finish',
+        
+        // Pricing info
+        price: '35',
+        currency: '$',
+        priceAlt: '€30',
+        period: 'per travel night',
+        highlight: 'Example: 10-night trip = $350 / 300€',
+        
+        // Description (emotional - from basicServices)
+        description: 'Let us be your ultimate travel organizer! We handle flights, hotels in premium locations, and design a completely personalized itinerary. Save time, money, and skip the stress with our expertise!',
+        
+        // Features for display (summarized)
+        featuresTitle: 'All included:',
+        summaryFeatures: [
+          'Search and booking of optimized flights',
+          'Premium hotels in strategic locations',
+          'Complete personalized day-by-day itinerary',
+          'Unique experiences and support during your trip',
+          'Guaranteed savings vs. booking on your own'
+        ],
+        
+        cta: 'Start Consulting'
+      },
+      
+      ctaSection: {
+        title: 'Not sure which plan to choose?',
+        description: "Schedule a free 15-minute consultation and we'll help you find the best option for your trip",
+        button: 'Free Consultation'
       }
     },
     video: {
@@ -291,6 +403,10 @@ const translations = {
         austria: {
           name: 'Austria',
           description: 'Imperial Vienna, snowy Alps, and classical music. Austria combines European elegance with alpine nature in a fairytale setting.'
+        },
+        japon: {
+          name: 'Japan',
+          description: 'Ancient temples, futuristic technology and lush nature. From Tokyo to Kyoto, Japan merges ancestral tradition with extreme modernity in an experience that challenges the senses.'
         },
         oktoberfest: {
           name: 'Oktoberfest',
@@ -366,8 +482,8 @@ const translations = {
         countriesLabel: 'Besuchte Länder',
         experience: '15+',
         experienceLabel: 'Jahre Reisen',
-        clients: '200+',
-        clientsLabel: 'Glückliche Reisende'
+        trips: '200+',
+        tripsLabel: 'Schöne Reisen'
       }
     },
     hero: {
@@ -378,20 +494,73 @@ const translations = {
       cta1: 'Kostenlose Beratung',
       cta2: 'Dienstleistungen ansehen'
     },
-    basicServices: {
-      title: 'Unsere Basisdienstleistungen',
-      subtitle: 'Wählen Sie die perfekte Option für Ihr nächstes Abenteuer',
-      consulting: {
-        title: 'Beratung',
-        description: 'Lassen Sie uns Ihr ultimativer Reiseorganisator sein! Wir kümmern uns um Flüge, Hotels in Premium-Lagen und gestalten eine vollständig personalisierte Reiseroute. Sparen Sie Zeit, Geld und vermeiden Sie Stress mit unserer Expertise!',
-        badge: 'Alles Inklusive',
-        features: ['Optimierte Flüge', 'Ausgewählte Hotels', 'Maßgeschneiderter Reiseplan', 'Garantierte Ersparnis']
+    services: {
+      title: 'Unsere Dienstleistungen',
+      subtitle: 'Wähle die perfekte Option, um dein nächstes Abenteuer zu maximieren',
+      
+      guarantee: {
+        title: 'Unsere Garantie',
+        description: 'Du sparst mehr Geld und Zeit, wenn du uns beauftragst, als wenn du alles selbst machst. Wenn du nicht zufrieden bist, arbeiten wir weiter, bis du es bist.'
       },
+      
       advisory: {
-        title: 'Beratungsgespräch',
-        description: 'Brauchen Sie einen Experten an Ihrer Seite? Buchen Sie eine 1:1-Sitzung mit uns, um die Geheimnisse Ihres Reiseziels zu entdecken und die klügsten Entscheidungen zu treffen. Maximieren Sie Ihr Budget und erleben Sie ein episches, unvergessliches Abenteuer!',
-        badge: 'Experten an Ihrer Seite',
-        features: ['Persönliche Sitzung', 'Expertenrat', 'Kluge Entscheidungen', 'Maximale Ersparnis']
+        name: 'Beratung',
+        badge: 'Beliebt',
+        tagline: 'Entdecke dein Reiseziel wie ein Einheimischer',
+        
+        // Pricing info
+        price: '49',
+        currency: '$',
+        priceAlt: '€45',
+        period: 'pro Sitzung',
+        
+        // Description (emotional - from basicServices)
+        description: 'Brauchst du einen Experten, der dich führt? Buche eine 1:1-Sitzung mit uns, um die Geheimnisse deines Reiseziels zu entdecken und die klügsten Entscheidungen zu treffen. Maximiere dein Budget und erlebe ein episches, unvergessliches Abenteuer!',
+        
+        // Features for display (summarized)
+        featuresTitle: 'Enthalten ist:',
+        summaryFeatures: [
+          'Personalisierte 1:1-Sitzung von 60 Minuten',
+          'Expertenwissen über das Reiseziel und lokale Geheimtipps',
+          'Praktische Tipps zur Maximierung deines Budgets',
+          'Einzigartige Empfehlungen und E-Mail-Support'
+        ],
+        
+        cta: 'Beratung buchen'
+      },
+      
+      consulting: {
+        name: 'Reiseplanung',
+        badge: 'Am vollständigsten',
+        tagline: 'Deine perfekte Reise – von Anfang bis Ende',
+        
+        // Pricing info
+        price: '35',
+        currency: '$',
+        priceAlt: '€30',
+        period: 'pro Reisennacht',
+        highlight: 'Beispiel: 10-Nächte-Reise = $350 / 300€',
+        
+        // Description (emotional - from basicServices)
+        description: 'Lass uns dein ultimativer Reiseorganisator sein! Wir kümmern uns um Flüge, Hotels in Premium-Lagen und erstellen einen vollständig personalisierten Reiseplan. Spare Zeit, Geld und vermeide Stress dank unserer Expertise!',
+        
+        // Features for display (summarized)
+        featuresTitle: 'Alles inklusive:',
+        summaryFeatures: [
+          'Suche und Buchung optimierter Flüge',
+          'Premium-Hotels in strategischen Lagen',
+          'Vollständig personalisierter Tagesplan',
+          'Einzigartige Erlebnisse und Unterstützung während der Reise',
+          'Garantierte Ersparnis gegenüber einer eigenen Buchung'
+        ],
+        
+        cta: 'Reiseplanung starten'
+      },
+      
+      ctaSection: {
+        title: 'Nicht sicher, welchen Plan du wählen sollst?',
+        description: 'Vereinbare eine kostenlose 15-minütige Beratung und wir helfen dir, die beste Option für deine Reise zu finden',
+        button: 'Kostenlose Beratung'
       }
     },
     video: {
@@ -441,6 +610,10 @@ const translations = {
         austria: {
           name: 'Österreich',
           description: 'Kaiserliches Wien, verschneite Alpen und klassische Musik. Österreich vereint europäische Eleganz mit alpiner Natur in einer märchenhaften Kulisse.'
+        },
+        japon: {
+          name: 'Japan',
+          description: 'Jahrtausendealte Tempel, futuristische Technologie und üppige Natur. Von Tokio bis Kyoto vereint Japan uralte Tradition mit extremer Moderne in einem Erlebnis, das die Sinne herausfordert.'
         },
         oktoberfest: {
           name: 'Oktoberfest',
@@ -828,7 +1001,7 @@ export default function TravelMaximizers() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
               {t.about.title}
             </h2>
-            <p className="text-base sm:text-lg text-gray-600">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600">
               {t.about.subtitle}
             </p>
           </div>
@@ -867,10 +1040,10 @@ export default function TravelMaximizers() {
                 </div>
                 <div className="text-center p-4 bg-emerald-50 rounded-lg">
                   <div className="text-2xl sm:text-3xl font-bold text-emerald-600 mb-1">
-                    {t.about.stats.clients}
+                    {t.about.stats.trips}
                   </div>
                   <div className="text-xs sm:text-sm text-gray-600">
-                    {t.about.stats.clientsLabel}
+                    {t.about.stats.tripsLabel}
                   </div>
                 </div>
               </div>
@@ -961,97 +1134,6 @@ export default function TravelMaximizers() {
         </div>
       </section>
 
-      {/* Basic Services Section */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-emerald-50 via-white to-teal-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
-              {t.basicServices.title}
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600">
-              {t.basicServices.subtitle}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
-            {/* Consulting Card */}
-            <div className="group relative bg-gradient-to-br from-emerald-500 to-teal-700 rounded-2xl p-8 sm:p-10 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mr-20 -mt-20"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/10 rounded-full -ml-16 -mb-16"></div>
-              
-              <div className="relative z-10">
-                <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-1 rounded-full text-white text-xs font-semibold mb-4">
-                  {t.basicServices.consulting.badge}
-                </div>
-                
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                  {t.basicServices.consulting.title}
-                </h3>
-                
-                <p className="text-white/90 text-sm sm:text-base mb-6 leading-relaxed">
-                  {t.basicServices.consulting.description}
-                </p>
-                
-                <ul className="space-y-3 mb-8">
-                  {t.basicServices.consulting.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-white">
-                      <span className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                        <span className="text-xs">✓</span>
-                      </span>
-                      <span className="text-sm sm:text-base">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button 
-                  onClick={openForm}
-                  className="w-full bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl transform group-hover:scale-105"
-                  >
-                  {t.hero.cta1}
-                </button>
-              </div>
-            </div>
-
-            {/* Advisory Card */}
-            <div className="group relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 sm:p-10 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full -mr-20 -mt-20"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-emerald-500/10 rounded-full -ml-16 -mb-16"></div>
-              
-              <div className="relative z-10">
-                <div className="inline-block bg-emerald-500/20 backdrop-blur-sm px-4 py-1 rounded-full text-emerald-300 text-xs font-semibold mb-4">
-                  {t.basicServices.advisory.badge}
-                </div>
-                
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                  {t.basicServices.advisory.title}
-                </h3>
-                
-                <p className="text-gray-300 text-sm sm:text-base mb-6 leading-relaxed">
-                  {t.basicServices.advisory.description}
-                </p>
-                
-                <ul className="space-y-3 mb-8">
-                  {t.basicServices.advisory.features.map((feature, i) => (
-                    <li key={i} className="flex items-center text-white">
-                      <span className="w-6 h-6 bg-emerald-500/20 rounded-full flex items-center justify-center mr-3 flex-shrink-0">
-                        <span className="text-xs text-emerald-400">✓</span>
-                      </span>
-                      <span className="text-sm sm:text-base">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <button 
-                  onClick={openForm}
-                  className="w-full bg-gradient-to-r from-emerald-500 to-teal-700 text-white px-6 py-3 rounded-full font-semibold hover:from-emerald-600 hover:to-teal-800 transition-all shadow-lg hover:shadow-xl transform group-hover:scale-105">
-                  {t.hero.cta1}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Video Section */}
       <section id="video" className="py-12 sm:py-16 lg:py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1078,6 +1160,213 @@ export default function TravelMaximizers() {
         </div>
       </section>
       
+       {/* Services & Pricing Section */}
+      <section id="servicios" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-emerald-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+              {t.services.title}
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+              {t.services.subtitle}
+            </p>
+          </div>
+
+          {/* Guarantee Banner */}
+          <div className="max-w-5xl mx-auto bg-emerald-50 border-2 border-emerald-200 rounded-xl p-6 sm:p-8 mb-12">
+            <div className="flex items-start gap-4">
+              <div className="bg-emerald-600 rounded-full p-2 sm:p-3 flex-shrink-0">
+                <svg className="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
+                  {t.services.guarantee.title}
+                </h4>
+                <p className="text-gray-700 text-sm sm:text-base">
+                  {t.services.guarantee.description}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Services Cards Grid */}
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
+            
+            {/* Asesoría Card */}
+            <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border-2 border-gray-100 hover:border-emerald-300 transform hover:-translate-y-2">
+              <div className="relative overflow-hidden">
+                {/* Decorative background elements */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-400/20 to-teal-400/20 rounded-full -mr-16 -mt-16"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-emerald-400/10 to-teal-400/10 rounded-full -ml-12 -mb-12"></div>
+                
+                <div className="relative p-6 sm:p-8">
+                  {/* Badge and Title */}
+                  <div className="flex justify-between items-start mb-4">
+                    <div>
+                      <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                        {t.services.advisory.name}
+                      </h3>
+                      <p className="text-sm font-semibold text-emerald-600">
+                        {t.services.advisory.tagline}
+                      </p>
+                    </div>
+                    <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap">
+                      {t.services.advisory.badge}
+                    </span>
+                  </div>
+
+                  {/* Price */}
+                  <div className="mb-6 pb-6 border-b border-gray-100">
+                    <div className="flex items-baseline gap-2 mb-1">
+                      <span className="text-4xl sm:text-5xl font-bold text-gray-900">
+                        {t.services.advisory.price}
+                      </span>
+                      <span className="text-2xl font-semibold text-emerald-600">
+                        {t.services.advisory.currency}
+                      </span>
+                      <span className="text-gray-500 text-sm">
+                        / {t.services.advisory.period}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500">
+                      {t.services.advisory.priceAlt} USD
+                    </p>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-700 mb-6 text-sm sm:text-base leading-relaxed">
+                    {t.services.advisory.description}
+                  </p>
+
+                  {/* Key Features - Summary */}
+                  <div className="mb-6">
+                    <h4 className="text-sm font-bold text-gray-900 mb-3 uppercase tracking-wide">
+                      {t.services.advisory.featuresTitle}
+                    </h4>
+                    <ul className="space-y-2">
+                      {t.services.advisory.summaryFeatures.map((feature, index) => (
+                        <li key={index} className="flex items-start text-sm text-gray-700">
+                          <svg className="w-5 h-5 text-emerald-600 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span dangerouslySetInnerHTML={{ __html: feature }} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* CTA Button */}
+                  <button
+                    onClick={openForm}
+                    className="w-full bg-gradient-to-r from-emerald-600 to-teal-700 text-white py-3 sm:py-4 rounded-xl font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all text-sm sm:text-base"
+                  >
+                    {t.services.advisory.cta}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Consultoría Card - Premium */}
+            <div className="relative bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300 overflow-hidden transform hover:-translate-y-2">
+              {/* Premium Badge */}
+              <div className="absolute top-0 right-0 bg-yellow-400 text-gray-900 px-4 sm:px-6 py-2 rounded-bl-2xl font-bold text-xs sm:text-sm z-10">
+                {t.services.consulting.badge}
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute top-0 left-0 w-40 h-40 bg-white/10 rounded-full -ml-20 -mt-20"></div>
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mb-16"></div>
+
+              <div className="relative p-6 sm:p-8 text-white">
+                {/* Title */}
+                <div className="mb-4">
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-2">
+                    {t.services.consulting.name}
+                  </h3>
+                  <p className="text-sm font-semibold text-emerald-100">
+                    {t.services.consulting.tagline}
+                  </p>
+                </div>
+
+                {/* Price */}
+                <div className="mb-6 pb-6 border-b border-white/20">
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-4xl sm:text-5xl font-bold">
+                      {t.services.consulting.price}
+                    </span>
+                    <span className="text-2xl font-semibold">
+                      {t.services.consulting.currency}
+                    </span>
+                    <span className="text-emerald-100 text-sm">
+                      / {t.services.consulting.period}
+                    </span>
+                  </div>
+                  <p className="text-xs text-emerald-100 mb-2">
+                    {t.services.consulting.priceAlt} USD
+                  </p>
+                  <p className="text-xs bg-white/20 inline-block px-3 py-1 rounded-full">
+                    {t.services.consulting.highlight}
+                  </p>
+                </div>
+
+                {/* Description */}
+                <p className="text-white/95 mb-6 text-sm sm:text-base leading-relaxed">
+                  {t.services.consulting.description}
+                </p>
+
+                {/* Key Features - Summary */}
+                <div className="mb-6">
+                  <h4 className="text-sm font-bold text-white mb-3 uppercase tracking-wide">
+                    {t.services.consulting.featuresTitle}
+                  </h4>
+                  <ul className="space-y-2">
+                    {t.services.consulting.summaryFeatures.map((feature, index) => (
+                      <li key={index} className="flex items-start text-sm text-white">
+                        <svg className="w-5 h-5 text-yellow-400 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span dangerouslySetInnerHTML={{ __html: feature }} />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CTA Button */}
+                <button
+                  onClick={openForm}
+                  className="w-full bg-white text-emerald-600 py-3 sm:py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base"
+                >
+                  {t.services.consulting.cta}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom CTA Section */}
+          <div className="max-w-4xl mx-auto text-center mt-12 sm:mt-16">
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-8 sm:p-10">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
+                {t.services.ctaSection.title}
+              </h3>
+              <p className="text-gray-600 mb-6 text-sm sm:text-base">
+                {t.services.ctaSection.description}
+              </p>
+              <button
+                onClick={openForm}
+                className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all inline-flex items-center text-sm sm:text-base"
+              >
+                {t.services.ctaSection.button}
+                <ArrowRight className="ml-2" size={18} />
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+     
       {/* Destinos Sugeridos */}   
       <section id="suggested-destinations" className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
@@ -1240,9 +1529,46 @@ export default function TravelMaximizers() {
             <div className="sm:col-span-2 lg:col-span-1">
               <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">{t.footer.contactTitle}</h4>
               <ul className="space-y-2 text-gray-400 text-xs sm:text-sm">
-                <li>info@travelmaximizers.com</li>
-                <li>+34 123 456 789</li>
-                <li>Madrid, España</li>
+                <li className="flex items-center gap-2">
+                  <svg 
+                    className="w-4 h-4 flex-shrink-0" 
+                    fill="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  <button 
+                    onClick={openForm}
+                    className="hover:text-white transition-colors duration-200 cursor-pointer"
+                  >
+                    travelmaximizers@gmail.com
+                  </button>
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg 
+                    className="w-4 h-4 flex-shrink-0" 
+                    viewBox="0 0 24 24"
+                  >
+                    <defs>
+                      <linearGradient id="instagram-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" style={{stopColor: '#f09433'}} />
+                        <stop offset="25%" style={{stopColor: '#e6683c'}} />
+                        <stop offset="50%" style={{stopColor: '#dc2743'}} />
+                        <stop offset="75%" style={{stopColor: '#cc2366'}} />
+                        <stop offset="100%" style={{stopColor: '#bc1888'}} />
+                      </linearGradient>
+                    </defs>
+                    <path fill="url(#instagram-gradient)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
+                  <a 
+                    href="https://instagram.com/travelmaximizers"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors duration-200"
+                  >
+                    @travelmaximizers
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
