@@ -1,0 +1,56 @@
+# robots.txt for Travel Maximizers
+# Optimizado para SEO - Permite indexación completa
+
+# General rules for all crawlers
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Crawl-delay (opcional, solo si hay problemas de carga)
+# Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://travelmaximizers.com/sitemap.xml
+
+# Google-specific rules
+User-agent: Googlebot
+Allow: /
+Allow: /*.js
+Allow: /*.css
+Disallow: /admin/
+
+# Googlebot Image
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.gif
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+Disallow: /admin/
+
+# Social Media Crawlers (para Open Graph)
+User-agent: facebot
+User-agent: Twitterbot
+User-agent: LinkedInBot
+Allow: /
+
+# Bad Bots (bloquear crawlers maliciosos)
+User-agent: SemrushBot
+User-agent: AhrefsBot
+User-agent: DotBot
+Disallow: /
+
+# Additional notes:
+# - Si tienes un blog, añadir: Allow: /blog/
+# - Si tienes páginas privadas: Disallow: /private/
+# - Actualizar sitemap URL cuando cambies de dominio
