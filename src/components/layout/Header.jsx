@@ -78,16 +78,22 @@ export default function Header({ t, language, onLanguageChange }) {
               {t.nav.services}
             </a>
             <a 
-              href="#video" 
+              href="#suggested-destinations" 
               className="text-gray-700 hover:text-emerald-600 transition-colors"
             >
-              {t.nav.video}
+              {t.nav.destinations}
             </a>
             <a 
               href="#contacto" 
               className="text-gray-700 hover:text-emerald-600 transition-colors"
             >
               {t.nav.contact}
+            </a>
+            <a 
+              href="#faq" 
+              className="text-gray-700 hover:text-emerald-600 transition-colors"
+            >
+              {t.nav.faq}
             </a>
           </nav>
 

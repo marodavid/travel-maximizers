@@ -20,6 +20,7 @@ export default function DestinationsSection({ t }) {
     "marruecos",
     "colombia",
     "panama",
+    "peru",
     "mexico",
     "brasil",
     "croacia",

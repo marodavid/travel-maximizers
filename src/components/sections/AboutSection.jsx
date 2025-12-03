@@ -65,6 +65,9 @@ export default function AboutSection({ t, onContactClick }) {
               <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
                 {t.about.description3}
               </p>
+              <p className="text-base sm:text-lg text-gray-700 mb-6 leading-relaxed">
+                {t.about.description4}
+              </p>
             </article>
             
             {/* Stats */}
