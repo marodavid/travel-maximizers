@@ -1,4 +1,3 @@
-// Google Analytics
 export const initGA = () => {
   const script = document.createElement('script');
   script.async = true;
