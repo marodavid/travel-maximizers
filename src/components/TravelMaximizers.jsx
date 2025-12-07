@@ -78,7 +78,8 @@ export default function TravelMaximizers() {
         language={language}
         translations={t}
       />
-      <SchemaOrg language={language} />
+      <SchemaOrg language={language} translations={t} />
+
 
       <div className="min-h-screen bg-white">
         {/* Header - Always visible (SEO Critical) */}
