@@ -46,11 +46,11 @@ export default function SchemaOrg({ language = 'es', translations }) {
       "width": 250,
       "height": 60
     },
-    "description": language === 'es' 
+    "description": language === 'es'
       ? "Asesoría de viajes personalizada para maximizar tu experiencia en destinos exóticos de todo el mundo"
       : language === 'en'
-      ? "Personalized travel advisory to maximize your experience in exotic destinations worldwide"
-      : "Personalisierte Reiseberatung zur Maximierung Ihrer Erfahrung in exotischen Reisezielen weltweit",
+        ? "Personalized travel advisory to maximize your experience in exotic destinations worldwide"
+        : "Personalisierte Reiseberatung zur Maximierung Ihrer Erfahrung in exotischen Reisezielen weltweit",
     "email": "travelmaximizers@gmail.com",
     "telephone": "+507-XXXX-XXXX", // Actualizar con teléfono real
     "address": {
@@ -66,17 +66,19 @@ export default function SchemaOrg({ language = 'es', translations }) {
     },
     "sameAs": [
       "https://www.instagram.com/travelmaximizers",
-      // "https://www.facebook.com/travelmaximizers",
-      // "https://twitter.com/travelmaximizers"
+      "https://www.tiktok.com/@travelmaximizers",
+      "https://www.youtube.com/@travelmaximizers"
     ],
     "founder": [
       {
         "@type": "Person",
-        "name": "Laura"
+        "name": "Laura",
+        "jobTitle": "Travel Advisor & Co-founder"
       },
       {
         "@type": "Person",
-        "name": "David"
+        "name": "David",
+        "jobTitle": "Travel Advisor & Co-founder"
       }
     ],
     "areaServed": {
@@ -123,8 +125,8 @@ export default function SchemaOrg({ language = 'es', translations }) {
       "description": language === 'es'
         ? "Asesoría de viajes personalizada con itinerarios detallados y recomendaciones expertas"
         : language === 'en'
-        ? "Personalized travel advisory with detailed itineraries and expert recommendations"
-        : "Personalisierte Reiseberatung mit detaillierten Reiserouten und Expertenempfehlungen"
+          ? "Personalized travel advisory with detailed itineraries and expert recommendations"
+          : "Personalisierte Reiseberatung mit detaillierten Reiserouten und Expertenempfehlungen"
     },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -138,8 +140,8 @@ export default function SchemaOrg({ language = 'es', translations }) {
             "description": language === 'es'
               ? "Itinerario completo para un destino"
               : language === 'en'
-              ? "Complete itinerary for one destination"
-              : "Vollständige Reiseroute für ein Ziel"
+                ? "Complete itinerary for one destination"
+                : "Vollständige Reiseroute für ein Ziel"
           }
         },
         {
@@ -150,8 +152,8 @@ export default function SchemaOrg({ language = 'es', translations }) {
             "description": language === 'es'
               ? "Planificación integral viaje multi-destino con reservas gestionadas"
               : language === 'en'
-              ? "Comprehensive multi-destination trip planning with managed bookings"
-              : "Umfassende Mehrzielsplanung mit verwalteten Buchungen"
+                ? "Comprehensive multi-destination trip planning with managed bookings"
+                : "Umfassende Mehrzielsplanung mit verwalteten Buchungen"
           }
         }
       ]
@@ -185,8 +187,8 @@ export default function SchemaOrg({ language = 'es', translations }) {
         "reviewBody": language === 'es'
           ? "Excelente servicio. Nuestro viaje a Tailandia fue perfecto gracias a su itinerario detallado."
           : language === 'en'
-          ? "Excellent service. Our trip to Thailand was perfect thanks to their detailed itinerary."
-          : "Ausgezeichneter Service. Unsere Reise nach Thailand war dank ihrer detaillierten Reiseroute perfekt."
+            ? "Excellent service. Our trip to Thailand was perfect thanks to their detailed itinerary."
+            : "Ausgezeichneter Service. Unsere Reise nach Thailand war dank ihrer detaillierten Reiseroute perfekt."
       },
       {
         "@type": "Review",
@@ -202,8 +204,8 @@ export default function SchemaOrg({ language = 'es', translations }) {
         "reviewBody": language === 'es'
           ? "Los mejores asesores de viajes. Su conocimiento de Jordania es excepcional."
           : language === 'en'
-          ? "The best travel advisors. Their knowledge of Jordan is exceptional."
-          : "Die besten Reiseberater. Ihr Wissen über Jordanien ist außergewöhnlich."
+            ? "The best travel advisors. Their knowledge of Jordan is exceptional."
+            : "Die besten Reiseberater. Ihr Wissen über Jordanien ist außergewöhnlich."
       }
     ]
   };
@@ -218,8 +220,8 @@ export default function SchemaOrg({ language = 'es', translations }) {
     "description": language === 'es'
       ? "Asesoría de viajes experta para destinos exóticos. Maximiza tu experiencia con itinerarios personalizados."
       : language === 'en'
-      ? "Expert travel advisory for exotic destinations. Maximize your experience with personalized itineraries."
-      : "Experten-Reiseberatung für exotische Reiseziele. Maximieren Sie Ihre Erfahrung mit personalisierten Reiserouten.",
+        ? "Expert travel advisory for exotic destinations. Maximize your experience with personalized itineraries."
+        : "Experten-Reiseberatung für exotische Reiseziele. Maximieren Sie Ihre Erfahrung mit personalisierten Reiserouten.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -280,7 +282,7 @@ export default function SchemaOrg({ language = 'es', translations }) {
     }
 
     const t = translations;
-    
+
     // Crear array de todas las FAQs
     const allFaqs = [
       { question: t.faq.q1, answer: t.faq.a1 },
@@ -294,10 +296,10 @@ export default function SchemaOrg({ language = 'es', translations }) {
     ];
 
     // ✅ Filtrar solo FAQs válidas (con question y answer)
-    const validFaqs = allFaqs.filter(faq => 
-      faq.question && 
-      faq.answer && 
-      faq.question.trim() !== '' && 
+    const validFaqs = allFaqs.filter(faq =>
+      faq.question &&
+      faq.answer &&
+      faq.question.trim() !== '' &&
       faq.answer.trim() !== ''
     );
 

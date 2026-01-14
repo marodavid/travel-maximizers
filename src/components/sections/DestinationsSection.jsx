@@ -78,7 +78,7 @@ export default function DestinationsSection({ t, onContactClick }) {
                   <div className="absolute inset-0">
                     <img
                       src={imageUrl}
-                      alt={`${dest.name} - Destino de viaje`}
+                      alt={`${dest.name} - Itinerario de viaje personalizado y asesoría experta`}
                       loading="lazy"
                       className="h-full w-full rounded-xl object-cover shadow-lg"
                     />
