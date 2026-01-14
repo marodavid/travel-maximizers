@@ -201,28 +201,28 @@ const translations = {
       ctaButton: "Contáctanos",
 
       q1: "¿Qué incluye la asesoría de viajes personalizada?",
-      a1: "Nuestra asesoría de viajes incluye: recomendaciones personalizadas de destinos basadas en tus intereses, itinerario detallado día a día con horarios optimizados, sugerencias de alojamiento para todos los presupuestos, reservas de actividades y excursiones únicas, consejos de seguridad y vacunación, presupuesto detallado con opciones de ahorro, documentación necesaria (visas, seguros), y soporte 24/7 durante tu viaje por WhatsApp.",
+      a1: "Nuestra asesoría de viajes personalizada incluye: recomendaciones expertas de destinos, itinerarios detallados día a día, selección de alojamientos con encanto, reserva de actividades únicas y soporte 24/7. Maximizamos tu tiempo y presupuesto para que vivas una experiencia auténtica y sin complicaciones.",
 
       q2: "¿Cuánto cuesta contratar un asesor de viajes?",
-      a2: "Ofrecemos dos opciones de asesoría: Asesoría Básica desde €299/persona (ideal para viajes de 7-14 días a un destino, incluye itinerario completo y recomendaciones) y Consultoría Premium desde €699/persona (para viajes complejos multi-destino, incluye planificación integral, reservas gestionadas, y soporte personalizado ilimitado). El precio final depende de la complejidad del viaje, número de destinos, y duración.",
+      a2: "Ofrecemos planes flexibles de consultoría de viajes: Asesoría de sesión única por €40/sesión y Consultoría integral desde €30/noche. Ahorrarás más en mejores hoteles y vuelos optimizados de lo que cuesta nuestra asesoría. Invertir en un experto es la mejor forma de garantizar el éxito de tu viaje.",
 
       q3: "¿Para qué destinos ofrecen asesoría de viajes?",
-      a3: "Somos expertos en destinos exóticos de todo el mundo: Asia (Tailandia, Japón, Vietnam), Oriente Medio (Jordania, Emiratos Árabes), América Latina (Colombia, Panamá, México, Brasil, Argentina), Europa (Italia, Croacia, Austria, Alemania), y África (Marruecos, Kenia). También diseñamos experiencias únicas como Oktoberfest en Munich, safaris africanos, y rutas de senderismo en Patagonia. Con más de 50 países visitados, adaptamos cada viaje a tus intereses.",
+      a3: "Somos especialistas en destinos exóticos como Tailandia, Jordania, Japón, Marruecos, Colombia y el Sudeste Asiático. Con más de 60 países visitados, diseñamos itinerarios personalizados para cualquier rincón del mundo, adaptándonos a tus gustos y presupuesto.",
 
       q4: "¿Cuánto tiempo antes debo contratar la asesoría?",
-      a4: "Recomendamos contratar la asesoría entre 2-4 meses antes de tu viaje para destinos internacionales. Esto permite: conseguir mejores precios en vuelos y alojamientos, gestionar visas y documentación necesaria, reservar actividades populares que se agotan rápido, planificar rutas detalladas sin prisas, y ajustar el presupuesto. Para destinos complejos (como Japón o Jordania) o viajes en temporada alta, lo ideal es 4-6 meses de anticipación.",
+      a4: "Recomendamos contactarnos con 2 a 6 meses de antelación. Esto nos permite asegurar disponibilidad en los mejores alojamientos premium y encontrar las tarifas aéreas más económicas para tu viaje personalizado.",
 
       q5: "¿La asesoría incluye las reservas de vuelos y hoteles?",
-      a5: "Depende del paquete: En la Asesoría Básica, te proporcionamos todas las recomendaciones detalladas (mejores hoteles según tu presupuesto, opciones de vuelos, actividades imprescindibles) pero tú haces las reservas. En la Consultoría Premium, gestionamos todas las reservas por ti: vuelos, alojamientos, actividades, traslados, y seguros de viaje. También monitoreamos cambios de precios y disponibilidad.",
+      a5: "En nuestra modalidad de Consultoría, nos encargamos de todo: búsqueda y reserva de vuelos optimizados, hoteles en ubicaciones estratégicas y actividades. Tú solo tienes que preocuparte de disfrutar. En la modalidad de Asesoría, te damos las mejores recomendaciones y tú realizas las reservas siguiendo nuestra guía experta.",
 
       q6: "¿Qué diferencia hay entre un asesor de viajes y una agencia tradicional?",
-      a6: "Un asesor de viajes personalizado como Travel Maximizers ofrece: atención 100% personalizada (no paquetes genéricos), experiencias auténticas basadas en nuestra experiencia real en cada destino, itinerarios flexibles adaptados a tu ritmo y preferencias, recomendaciones honestas sin comisiones ocultas, soporte directo de viajeros expertos (no vendedores), y optimización de presupuesto (te ayudamos a ahorrar y maximizar experiencias). Las agencias tradicionales venden paquetes estándar con márgenes altos.",
+      a6: "A diferencia de las agencias tradicionales que venden paquetes cerrados, Travel Maximizers ofrece una planificación de viajes 100% a medida. No tenemos acuerdos con hoteles específicos, lo que nos permite recomendarte siempre lo mejor para TI. Somos viajeros expertos ayudando a otros viajeros.",
 
       q7: "¿Puedo modificar el itinerario después de contratado?",
-      a7: "¡Absolutamente! La asesoría incluye: 1 revisión completa del itinerario sin costo adicional, ajustes ilimitados durante la fase de planificación (antes del viaje), y modificaciones sobre la marcha durante tu viaje con soporte 24/7. Entendemos que los viajes son dinámicos y tus preferencias pueden cambiar. Nuestro objetivo es que tengas la mejor experiencia posible.",
+      a7: "¡Claro! Tu viaje es tuyo. Durante la fase de planificación, ajustamos el itinerario tantas veces como sea necesario hasta que sea perfecto. Nuestro objetivo es que cada día de tus vacaciones sea exactamente como lo soñaste.",
 
       q8: "¿Cómo funciona el proceso de asesoría de viajes?",
-      a8: "El proceso es simple: 1) Completas nuestro formulario con tus preferencias de viaje (destino deseado, presupuesto, intereses, fechas), 2) Programamos una videollamada inicial de 30-45 minutos para conocerte mejor, 3) Te enviamos una propuesta de itinerario en 3-5 días con todas las recomendaciones, 4) Hacemos ajustes hasta que esté perfecto, 5) Recibes tu guía de viaje completa con todos los detalles, y 6) Te damos soporte durante todo tu viaje por WhatsApp."
+      a8: "Es muy sencillo: 1) Solicitas una consulta gratuita inicial. 2) Analizamos tus gustos y presupuesto. 3) Diseñamos tu itinerario personalizado. 4) Te entregamos una guía detallada con todo lo necesario para maximizar tu experiencia."
     },
     cta: {
       title: '¿Listo para maximizar tu próximo viaje?',
@@ -451,28 +451,28 @@ const translations = {
       ctaButton: "Contact Us",
 
       q1: "What does personalized travel advisory include?",
-      a1: "Our travel advisory includes: personalized destination recommendations based on your interests, detailed day-by-day itinerary with optimized schedules, accommodation suggestions for all budgets, bookings for unique activities and excursions, safety and vaccination advice, detailed budget with money-saving options, necessary documentation (visas, insurance), and 24/7 WhatsApp support during your trip.",
+      a1: "Our personalized travel advisory includes: expert destination recommendations, detailed day-by-day itineraries, selection of charming accommodations, booking of unique activities, and 24/7 support. We maximize your time and budget so you can enjoy an authentic and hassle-free experience.",
 
       q2: "How much does it cost to hire a travel advisor?",
-      a2: "We offer two advisory options: Basic Advisory from €299/person (ideal for 7-14 day trips to one destination, includes complete itinerary and recommendations) and Premium Consulting from €699/person (for complex multi-destination trips, includes comprehensive planning, managed bookings, and unlimited personalized support). Final price depends on trip complexity, number of destinations, and duration.",
+      a2: "We offer flexible travel consulting plans: Single session advisory for €40/session and Comprehensive consulting starting from €30/night. You will save more on better hotels and optimized flights than the cost of our advisory. Investing in an expert is the best way to guarantee the success of your trip.",
 
       q3: "Which destinations do you provide travel advisory for?",
-      a3: "We are experts in exotic destinations worldwide: Asia (Thailand, Japan, Vietnam), Middle East (Jordan, United Arab Emirates), Latin America (Colombia, Panama, Mexico, Brazil, Argentina), Europe (Italy, Croatia, Austria, Germany), and Africa (Morocco, Kenya). We also design unique experiences like Oktoberfest in Munich, African safaris, and Patagonia trekking routes. With over 50 countries visited, we adapt each trip to your interests.",
+      a3: "We specialize in exotic destinations such as Thailand, Jordan, Japan, Morocco, Colombia, and Southeast Asia. With over 60 countries visited, we design personalized itineraries for any corner of the world, adapting to your tastes and budget.",
 
       q4: "How far in advance should I hire the advisory service?",
-      a4: "We recommend hiring advisory services 2-4 months before your trip for international destinations. This allows: getting better prices on flights and accommodations, managing visas and necessary documentation, booking popular activities that sell out quickly, planning detailed routes without rushing, and adjusting the budget. For complex destinations (like Japan or Jordan) or peak season travel, 4-6 months advance notice is ideal.",
+      a4: "We recommend contacting us 2 to 6 months in advance. This allows us to ensure availability in the best premium accommodations and find the most economical airfares for your personalized trip.",
 
       q5: "Does the advisory include flight and hotel bookings?",
-      a5: "It depends on the package: In Basic Advisory, we provide all detailed recommendations (best hotels according to your budget, flight options, must-do activities) but you make the bookings yourself. In Premium Consulting, we manage all bookings for you: flights, accommodations, activities, transfers, and travel insurance. We also monitor price changes and availability.",
+      a5: "In our Consulting mode, we take care of everything: searching and booking optimized flights, hotels in strategic locations, and activities. You only need to worry about enjoying your trip. In the Advisory mode, we give you the best recommendations and you handle the bookings following our expert guide.",
 
       q6: "What's the difference between a travel advisor and a traditional agency?",
-      a6: "A personalized travel advisor like Travel Maximizers offers: 100% personalized attention (no generic packages), authentic experiences based on our real experience in each destination, flexible itineraries adapted to your pace and preferences, honest recommendations without hidden commissions, direct support from expert travelers (not salespeople), and budget optimization (we help you save and maximize experiences). Traditional agencies sell standard packages with high margins.",
+      a6: "Unlike traditional agencies that sell fixed packages, Travel Maximizers offers 100% tailor-made travel planning. We don't have agreements with specific hotels, which allows us to always recommend what's best for YOU. We are expert travelers helping other travelers.",
 
       q7: "Can I modify the itinerary after booking?",
-      a7: "Absolutely! The advisory includes: 1 complete itinerary revision at no additional cost, unlimited adjustments during the planning phase (before the trip), and on-the-go modifications during your trip with 24/7 support. We understand that travel is dynamic and your preferences may change. Our goal is for you to have the best possible experience.",
+      a7: "Of course! Your trip is yours. During the planning phase, we adjust the itinerary as many times as necessary until it's perfect. Our goal is for every day of your vacation to be exactly as you dreamed.",
 
       q8: "How does the travel advisory process work?",
-      a8: "The process is simple: 1) You complete our form with your travel preferences (desired destination, budget, interests, dates), 2) We schedule an initial 30-45 minute video call to get to know you better, 3) We send you an itinerary proposal within 3-5 days with all recommendations, 4) We make adjustments until it's perfect, 5) You receive your complete travel guide with all details, and 6) We provide support throughout your entire trip via WhatsApp."
+      a8: "It's very simple: 1) You request an initial free consultation. 2) We analyze your tastes and budget. 3) We design your personalized itinerary. 4) We provide you with a detailed guide with everything you need to maximize your experience."
     },
     cta: {
       title: 'Ready to maximize your next trip?',
@@ -701,28 +701,27 @@ const translations = {
       ctaButton: "Kontaktieren Sie uns",
 
       q1: "Was beinhaltet die personalisierte Reiseberatung?",
-      a1: "Unsere Reiseberatung umfasst: personalisierte Zielempfehlungen basierend auf Ihren Interessen, detaillierte Tagesreiseroute mit optimierten Zeitplänen, Unterkunftsvorschläge für alle Budgets, Buchungen für einzigartige Aktivitäten und Ausflüge, Sicherheits- und Impfberatung, detailliertes Budget mit Sparoptionen, notwendige Dokumentation (Visa, Versicherungen), und 24/7 WhatsApp-Support während Ihrer Reise.",
+      a1: "Unsere personalisierte Reiseberatung umfasst: Experten-Empfehlungen für Reiseziele, detaillierte Tagespläne, Auswahl charmanter Unterkünfte, Buchung einzigartiger Aktivitäten und 24/7-Support. Wir maximieren Ihre Zeit und Ihr Budget, damit Sie ein authentisches und stressfreies Erlebnis genießen können.",
 
       q2: "Wie viel kostet es, einen Reiseberater zu beauftragen?",
-      a2: "Wir bieten zwei Beratungsoptionen an: Basisberatung ab 299€/Person (ideal für 7-14-tägige Reisen zu einem Ziel, beinhaltet vollständige Reiseroute und Empfehlungen) und Premium-Beratung ab 699€/Person (für komplexe Mehrzielsreisen, beinhaltet umfassende Planung, verwaltete Buchungen und unbegrenzte personalisierte Unterstützung). Der Endpreis hängt von der Komplexität der Reise, Anzahl der Ziele und Dauer ab.",
+      a2: "Wir bieten flexible Reiseplanungsmodelle: Einzelsitzungs-Beratung für 40 €/Sitzung und umfassende Beratung ab 30 €/Nacht. Sie sparen bei besseren Hotels und optimierten Flügen mehr, als unsere Beratung kostet. In einen Experten zu investieren ist der beste Weg, um den Erfolg Ihrer Reise zu garantieren.",
 
       q3: "Für welche Reiseziele bieten Sie Beratung an?",
-      a3: "Wir sind Experten für exotische Reiseziele weltweit: Asien (Thailand, Japan, Vietnam), Naher Osten (Jordanien, Vereinigte Arabische Emirate), Lateinamerika (Kolumbien, Panama, Mexiko, Brasilien, Argentinien), Europa (Italien, Kroatien, Österreich, Deutschland) und Afrika (Marokko, Kenia). Wir gestalten auch einzigartige Erlebnisse wie Oktoberfest in München, afrikanische Safaris und Trekkingtouren in Patagonien. Mit über 50 besuchten Ländern passen wir jede Reise an Ihre Interessen an.",
+      a3: "Wir sind spezialisiert auf exotische Reiseziele wie Thailand, Jordanien, Japan, Marokko, Kolumbien und Südostasien. Mit über 60 besuchten Ländern entwerfen wir personalisierte Reiserouten für jeden Winkel der Welt, angepasst an Ihren Geschmack und Ihr Budget.",
 
       q4: "Wie weit im Voraus sollte ich die Beratung buchen?",
-      a4: "Wir empfehlen, die Beratung 2-4 Monate vor Ihrer Reise für internationale Ziele zu buchen. Dies ermöglicht: bessere Preise für Flüge und Unterkünfte zu erhalten, Visa und notwendige Dokumentation zu verwalten, beliebte Aktivitäten zu buchen, die schnell ausverkauft sind, detaillierte Routen ohne Eile zu planen und das Budget anzupassen. Für komplexe Ziele (wie Japan oder Jordanien) oder Reisen in der Hochsaison sind 4-6 Monate Vorlauf ideal.",
+      a4: "Wir empfehlen, uns 2 bis 6 Monate im Voraus zu kontaktieren. Dies ermöglicht es uns, die Verfügbarkeit in den besten Premium-Unterkünften sicherzustellen und die günstigsten Flugtarife für Ihre personalisierte Reise zu finden.",
 
       q5: "Beinhaltet die Beratung Flug- und Hotelbuchungen?",
-      a5: "Es hängt vom Paket ab: Bei der Basisberatung geben wir Ihnen alle detaillierten Empfehlungen (beste Hotels nach Ihrem Budget, Flugoptionen, Must-Do-Aktivitäten), aber Sie nehmen die Buchungen selbst vor. Bei der Premium-Beratung verwalten wir alle Buchungen für Sie: Flüge, Unterkünfte, Aktivitäten, Transfers und Reiseversicherung. Wir überwachen auch Preisänderungen und Verfügbarkeit.",
+      a5: "In unserem Consulting-Modus kümmern wir uns um alles: Suche und Buchung optimierter Flüge, Hotels in strategischen Lagem und Aktivitäten. Sie müssen sich nur um das Genießen kümmern. Im Advisory-Modus geben wir Ihnen die besten Empfehlungen, und Sie nehmen die Buchungen gemäß unserem Expertenleitfaden vor.",
 
       q6: "Was ist der Unterschied zwischen einem Reiseberater und einer traditionellen Agentur?",
-      a6: "Ein personalisierter Reiseberater wie Travel Maximizers bietet: 100% personalisierte Betreuung (keine generischen Pakete), authentische Erlebnisse basierend auf unserer echten Erfahrung an jedem Ziel, flexible Reiserouten angepasst an Ihr Tempo und Ihre Vorlieben, ehrliche Empfehlungen ohne versteckte Provisionen, direkte Unterstützung von erfahrenen Reisenden (keine Verkäufer) und Budgetoptimierung (wir helfen Ihnen zu sparen und Erlebnisse zu maximieren). Traditionelle Agenturen verkaufen Standardpakete mit hohen Margen.",
+      a6: "Im Gegensatz zu traditionellen Reisebüros, die fertige Pakete verkaufen, bietet Travel Maximizers eine 100 % maßgeschneiderte Reiseplanung. Wir haben keine Verträge mit bestimmten Hotels, was es uns ermöglicht, Ihnen immer das Beste für SIE zu empfehlen. Wir sind erfahrene Reisende, die anderen Reisenden helfen.",
 
       q7: "Kann ich die Reiseroute nach der Buchung ändern?",
-      a7: "Absolut! Die Beratung beinhaltet: 1 vollständige Reiseroutenüberarbeitung ohne zusätzliche Kosten, unbegrenzte Anpassungen während der Planungsphase (vor der Reise) und spontane Änderungen während Ihrer Reise mit 24/7-Support. Wir verstehen, dass Reisen dynamisch sind und sich Ihre Vorlieben ändern können. Unser Ziel ist, dass Sie die bestmögliche Erfahrung haben.",
+      a7: "Natürlich! Ihre Reise gehört Ihnen. Während der Planungsphase passen wir die Reiseroute so oft wie nötig an, bis sie perfekt ist. Unser Ziel ist es, dass jeder Tag Ihres Urlaubs genau so ist, wie Sie es sich erträumt haben.",
 
-      q8: "Wie funktioniert der Reiseberatungsprozess?",
-      a8: "Der Prozess ist einfach: 1) Sie füllen unser Formular mit Ihren Reisepräferenzen aus (gewünschtes Ziel, Budget, Interessen, Termine), 2) Wir planen ein erstes 30-45-minütiges Videogespräch, um Sie besser kennenzulernen, 3) Wir senden Ihnen innerhalb von 3-5 Tagen einen Reiseroutenvorschlag mit allen Empfehlungen, 4) Wir nehmen Anpassungen vor, bis es perfekt ist, 5) Sie erhalten Ihren vollständigen Reiseführer mit allen Details, und 6) Wir geben Ihnen während Ihrer gesamten Reise Support via WhatsApp."
+      q8: "Es ist ganz einfach: 1) Sie fordern eine kostenlose Erstberatung an. 2) Wir analysieren Ihren Geschmack und Ihr Budget. 3) Wir entwerfen Ihre personalisierte Reiseroute. 4) Wir übergeben Ihnen einen detaillierten Leitfaden mit allem, was Sie brauchen, um Ihr Erlebnis zu maximieren."
     },
     cta: {
       title: 'Bereit, Ihre nächste Reise zu maximieren?',
