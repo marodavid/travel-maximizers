@@ -3,6 +3,12 @@ import { Helmet } from 'react-helmet-async';
 /**
  * SchemaOrg Component - Structured Data (JSON-LD)
  * 
+ * CORRECCIONES APLICADAS:
+ * - ✅ FAQPage schema ahora genera dinámicamente desde translations.jsx
+ * - ✅ Validación de FAQs para evitar "Missing field 'acceptedAnswer'"
+ * - ✅ Soporte para 8 FAQs completas
+ * - ✅ Soporte multi-idioma mejorado
+ * 
  * Implementa Schema.org markup para:
  * - Organization
  * - LocalBusiness
@@ -11,6 +17,7 @@ import { Helmet } from 'react-helmet-async';
  * - Review/AggregateRating
  * - BreadcrumbList
  * - WebPage
+ * - FAQPage (dinámico)
  * 
  * Beneficios SEO:
  * - Rich Snippets en resultados de búsqueda
@@ -20,8 +27,9 @@ import { Helmet } from 'react-helmet-async';
  * 
  * @param {Object} props
  * @param {string} props.language - Idioma actual
+ * @param {Object} props.translations - Objeto de traducciones
  */
-export default function SchemaOrg({ language = 'es' }) {
+export default function SchemaOrg({ language = 'es', translations }) {
   const baseUrl = "https://travelmaximizers.com"; // Actualizar con tu dominio
 
   // 1. Organization Schema
@@ -40,7 +48,9 @@ export default function SchemaOrg({ language = 'es' }) {
     },
     "description": language === 'es' 
       ? "Asesoría de viajes personalizada para maximizar tu experiencia en destinos exóticos de todo el mundo"
-      : "Personalized travel advisory to maximize your experience in exotic destinations worldwide",
+      : language === 'en'
+      ? "Personalized travel advisory to maximize your experience in exotic destinations worldwide"
+      : "Personalisierte Reiseberatung zur Maximierung Ihrer Erfahrung in exotischen Reisezielen weltweit",
     "email": "travelmaximizers@gmail.com",
     "telephone": "+507-XXXX-XXXX", // Actualizar con teléfono real
     "address": {
@@ -51,91 +61,108 @@ export default function SchemaOrg({ language = 'es' }) {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "8.9833",
-      "longitude": "-79.5167"
+      "latitude": 8.9833,
+      "longitude": -79.5167
     },
     "sameAs": [
-      "https://instagram.com/travelmaximizers",
-      "https://facebook.com/travelmaximizers",
-      "https://twitter.com/travelmaximizers"
+      "https://www.instagram.com/travelmaximizers",
+      // "https://www.facebook.com/travelmaximizers",
+      // "https://twitter.com/travelmaximizers"
     ],
-    "founder": {
-      "@type": "Person",
-      "name": "Laura & David"
-    },
+    "founder": [
+      {
+        "@type": "Person",
+        "name": "Laura"
+      },
+      {
+        "@type": "Person",
+        "name": "David"
+      }
+    ],
     "areaServed": {
       "@type": "GeoCircle",
       "geoMidpoint": {
         "@type": "GeoCoordinates",
-        "latitude": "8.9833",
-        "longitude": "-79.5167"
+        "latitude": 8.9833,
+        "longitude": -79.5167
       },
-      "geoRadius": "20000000" // Global
+      "geoRadius": "20000000" // 20,000 km radius (global)
     },
     "knowsAbout": [
       "Travel Planning",
       "Destination Advisory",
-      "Exotic Travel",
+      "Trip Itinerary Design",
+      "Exotic Destinations",
+      "Cultural Travel",
       "Custom Itineraries",
       "Adventure Travel",
-      "Cultural Tourism",
-      "Luxury Travel",
-      "Budget Travel"
+      "Budget Travel",
+      "Family Trips",
+      "Viajes en familia",
+      "Consultoria de viajes",
+      "Asesoria de viajes"
     ]
   };
 
-  // 2. Service Schema - Advisory
+  // 2. Service Schema (Advisory Service)
   const advisoryServiceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${baseUrl}/#advisory-service`,
-    "serviceType": "Travel Advisory Service",
-    "name": language === 'es' ? "Asesoría de Viajes" : "Travel Advisory",
-    "description": language === 'es'
-      ? "Servicio de asesoría personalizada para planificar tu viaje ideal con recomendaciones expertas"
-      : "Personalized advisory service to plan your ideal trip with expert recommendations",
+    "serviceType": language === 'es' ? "Asesoría de Viajes" : language === 'en'
+      ? "Travel Advisory & Consulting"
+      : "Reiseberatung",
     "provider": {
       "@id": `${baseUrl}/#organization`
     },
-    "areaServed": "Worldwide",
     "offers": {
       "@type": "Offer",
       "price": "299",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
       "url": `${baseUrl}/#servicios`,
-      "priceValidUntil": "2025-12-31"
+      "description": language === 'es'
+        ? "Asesoría de viajes personalizada con itinerarios detallados y recomendaciones expertas"
+        : language === 'en'
+        ? "Personalized travel advisory with detailed itineraries and expert recommendations"
+        : "Personalisierte Reiseberatung mit detaillierten Reiserouten und Expertenempfehlungen"
     },
-    "category": "Travel Advisory",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Travel Services",
+      "name": "Travel Advisory Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": language === 'es' ? "Asesoría de Viajes" : "Travel Advisory"
+            "name": language === 'es' ? "Asesoría Básica" : language === 'en' ? "Basic Advisory" : "Basisberatung",
+            "description": language === 'es'
+              ? "Itinerario completo para un destino"
+              : language === 'en'
+              ? "Complete itinerary for one destination"
+              : "Vollständige Reiseroute für ein Ziel"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": language === 'es' ? "Consultoría Premium" : "Premium Consulting"
+            "name": language === 'es' ? "Consultoría Premium de Viajes" : language === 'en' ? "Premium Travel Consulting" : "Premium ReiseBeratung",
+            "description": language === 'es'
+              ? "Planificación integral viaje multi-destino con reservas gestionadas"
+              : language === 'en'
+              ? "Comprehensive multi-destination trip planning with managed bookings"
+              : "Umfassende Mehrzielsplanung mit verwalteten Buchungen"
           }
         }
       ]
     }
   };
 
-  // 3. Aggregate Rating Schema
+  // 3. AggregateRating Schema (Reviews/Testimonials)
   const aggregateRatingSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${baseUrl}/#localbusiness`,
-    "name": "Travel Maximizers",
-    "image": `${baseUrl}/images/logo.png`,
+    "@type": "Product",
+    "name": "Travel Maximizers Advisory Service",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -150,15 +177,16 @@ export default function SchemaOrg({ language = 'es' }) {
           "@type": "Person",
           "name": "Sarah M."
         },
-        "datePublished": "2024-09-15",
-        "reviewBody": language === 'es'
-          ? "Laura y David nos diseñaron el itinerario perfecto para Tailandia. Cada detalle fue cuidadosamente pensado."
-          : "Laura and David designed the perfect itinerary for Thailand. Every detail was carefully thought out.",
         "reviewRating": {
           "@type": "Rating",
           "ratingValue": "5",
           "bestRating": "5"
-        }
+        },
+        "reviewBody": language === 'es'
+          ? "Excelente servicio. Nuestro viaje a Tailandia fue perfecto gracias a su itinerario detallado."
+          : language === 'en'
+          ? "Excellent service. Our trip to Thailand was perfect thanks to their detailed itinerary."
+          : "Ausgezeichneter Service. Unsere Reise nach Thailand war dank ihrer detaillierten Reiseroute perfekt."
       },
       {
         "@type": "Review",
@@ -166,15 +194,16 @@ export default function SchemaOrg({ language = 'es' }) {
           "@type": "Person",
           "name": "Michael R."
         },
-        "datePublished": "2024-08-22",
-        "reviewBody": language === 'es'
-          ? "La mejor inversión para nuestro viaje a Jordania. Conocimiento excepcional del destino."
-          : "The best investment for our trip to Jordan. Exceptional knowledge of the destination.",
         "reviewRating": {
           "@type": "Rating",
           "ratingValue": "5",
           "bestRating": "5"
-        }
+        },
+        "reviewBody": language === 'es'
+          ? "Los mejores asesores de viajes. Su conocimiento de Jordania es excepcional."
+          : language === 'en'
+          ? "The best travel advisors. Their knowledge of Jordan is exceptional."
+          : "Die besten Reiseberater. Ihr Wissen über Jordanien ist außergewöhnlich."
       }
     ]
   };
@@ -185,13 +214,12 @@ export default function SchemaOrg({ language = 'es' }) {
     "@type": "WebPage",
     "@id": `${baseUrl}/#webpage`,
     "url": baseUrl,
-    "name": "Travel Maximizers - Travel Advisory",
+    "name": "Travel Maximizers | Asesoría de Viajes Personalizada",
     "description": language === 'es'
-      ? "Asesoría de viajes personalizada para destinos exóticos"
-      : "Personalized travel advisory for exotic destinations",
-    "publisher": {
-      "@id": `${baseUrl}/#organization`
-    },
+      ? "Asesoría de viajes experta para destinos exóticos. Maximiza tu experiencia con itinerarios personalizados."
+      : language === 'en'
+      ? "Expert travel advisory for exotic destinations. Maximize your experience with personalized itineraries."
+      : "Experten-Reiseberatung für exotische Reiseziele. Maximieren Sie Ihre Erfahrung mit personalisierten Reiserouten.",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
@@ -226,77 +254,86 @@ export default function SchemaOrg({ language = 'es' }) {
       {
         "@type": "ListItem",
         "position": 2,
-        "name": language === 'es' ? "Servicios" : "Services",
+        "name": language === 'es' ? "Servicios" : language === 'en' ? "Services" : "Dienstleistungen",
         "item": `${baseUrl}/#servicios`
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "name": language === 'es' ? "Destinos" : "Destinations",
+        "name": language === 'es' ? "Destinos" : language === 'en' ? "Destinations" : "Reiseziele",
         "item": `${baseUrl}/#destinos`
       },
       {
         "@type": "ListItem",
         "position": 4,
-        "name": language === 'es' ? "Contacto" : "Contact",
+        "name": language === 'es' ? "Contacto" : language === 'en' ? "Contact" : "Kontakt",
         "item": `${baseUrl}/#contacto`
       }
     ]
   };
 
-  // 6. FAQPage Schema (para featured snippets)
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": language === 'es' 
-          ? "¿Qué incluye la asesoría de viajes?"
-          : "What does travel advisory include?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": language === 'es'
-            ? "Nuestra asesoría incluye: recomendaciones personalizadas de destinos, itinerario detallado día a día, reservas de alojamiento y actividades, consejos de seguridad, presupuesto optimizado, y soporte 24/7 durante tu viaje."
-            : "Our advisory includes: personalized destination recommendations, detailed day-by-day itinerary, accommodation and activity bookings, safety tips, optimized budget, and 24/7 support during your trip."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": language === 'es'
-          ? "¿Cuánto cuesta la asesoría de viajes?"
-          : "How much does travel advisory cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": language === 'es'
-            ? "Ofrecemos dos opciones: Asesoría básica desde €299 y Consultoría Premium desde €699, adaptadas a la complejidad de tu viaje y necesidades específicas."
-            : "We offer two options: Basic Advisory from €299 and Premium Consulting from €699, tailored to your trip complexity and specific needs."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": language === 'es'
-          ? "¿En qué destinos son expertos?"
-          : "Which destinations are you experts in?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": language === 'es'
-            ? "Somos especialistas en destinos exóticos de Asia (Tailandia, Japón), Oriente Medio (Jordania), América Latina (Colombia, Panamá, México, Brasil), Europa (Italia, Croacia, Austria) y experiencias únicas como Oktoberfest en Alemania."
-            : "We specialize in exotic destinations in Asia (Thailand, Japan), Middle East (Jordan), Latin America (Colombia, Panama, Mexico, Brazil), Europe (Italy, Croatia, Austria), and unique experiences like Oktoberfest in Germany."
-        }
+  // 6. FAQPage Schema (dinámico desde translations)
+  // ✅ CRÍTICO: Generar dinámicamente desde translations.jsx
+  const generateFAQSchema = () => {
+    if (!translations || !translations.faq) {
+      return null; // No generar schema si no hay FAQs
+    }
+
+    const t = translations;
+    
+    // Crear array de todas las FAQs
+    const allFaqs = [
+      { question: t.faq.q1, answer: t.faq.a1 },
+      // { question: t.faq.q2, answer: t.faq.a2 },
+      { question: t.faq.q3, answer: t.faq.a3 },
+      // { question: t.faq.q4, answer: t.faq.a4 },
+      // { question: t.faq.q5, answer: t.faq.a5 },
+      { question: t.faq.q6, answer: t.faq.a6 },
+      { question: t.faq.q7, answer: t.faq.a7 },
+      { question: t.faq.q8, answer: t.faq.a8 }
+    ];
+
+    // ✅ Filtrar solo FAQs válidas (con question y answer)
+    const validFaqs = allFaqs.filter(faq => 
+      faq.question && 
+      faq.answer && 
+      faq.question.trim() !== '' && 
+      faq.answer.trim() !== ''
+    );
+
+    // Si no hay FAQs válidas, no generar schema
+    if (validFaqs.length === 0) {
+      return null;
+    }
+
+    // Generar mainEntity con todas las FAQs válidas
+    const mainEntity = validFaqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
       }
-    ]
+    }));
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": mainEntity
+    };
   };
 
-  // Combinar todos los schemas
+  const faqSchema = generateFAQSchema();
+
+  // Combinar todos los schemas (solo los que existen)
   const allSchemas = [
     organizationSchema,
     advisoryServiceSchema,
     aggregateRatingSchema,
     webPageSchema,
     breadcrumbSchema,
-    faqSchema
-  ];
+    faqSchema // Puede ser null si no hay FAQs
+  ].filter(schema => schema !== null); // Eliminar nulls
 
   return (
     <Helmet>

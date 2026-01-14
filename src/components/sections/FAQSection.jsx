@@ -1,8 +1,14 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-
+import { trackFAQClick } from '../../utils/analytics';
 /**
  * FAQSection Component - Preguntas Frecuentes
+ * 
+ * CORRECCIONES APLICADAS:
+ * - ✅ Eliminado schema microdata (itemScope, itemProp) para evitar duplicación
+ * - ✅ Schema.org ahora solo en SchemaOrg.jsx (JSON-LD - formato preferido por Google)
+ * - ✅ Validación de FAQs para evitar undefined/null
+ * - ✅ Google Analytics tracking agregado
  * 
  * Beneficios SEO:
  * - Featured Snippets eligibility (Google Position 0)
@@ -10,24 +16,27 @@ import { ChevronDown, ChevronUp } from 'lucide-react';
  * - Aumenta tiempo en página
  * - Reduce bounce rate
  * - Long-tail keywords optimization
- * - Schema.org FAQPage (ya incluido en SchemaOrg component)
+ * - Schema.org FAQPage (en SchemaOrg component via JSON-LD)
  * 
  * @param {Object} props
  * @param {Object} props.t - Traducciones del idioma actual desde translations.jsx
- * 
- * IMPORTANTE: Este componente requiere que agregues la sección "faq" en translations.jsx
- * con las propiedades: title, subtitle, ctaText, ctaButton, q1-q8, a1-a8
  */
 export default function FAQSection({ t }) {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
+    // Track FAQ clicks (si está abriendo, no cerrando)
+    if (openIndex !== index) {
+      const question = faqs[index]?.question || '';
+      trackFAQClick(index + 1, question);
+    }
+    
     setOpenIndex(openIndex === index ? null : index);
   };
 
   // FAQs optimizadas para SEO con keywords long-tail
   // Todas las preguntas y respuestas vienen de translations.jsx
-  const faqs = [
+  const allFaqs = [
     {
       question: t.faq?.q1,
       answer: t.faq?.a1
@@ -62,6 +71,20 @@ export default function FAQSection({ t }) {
     }
   ];
 
+  // ✅ CRÍTICO: Filtrar FAQs para eliminar las que tienen undefined/null
+  // Esto previene el error "Missing field 'acceptedAnswer'"
+  const faqs = allFaqs.filter(faq => 
+    faq.question && 
+    faq.answer && 
+    faq.question.trim() !== '' && 
+    faq.answer.trim() !== ''
+  );
+
+  // Si no hay FAQs válidas, no renderizar la sección
+  if (faqs.length === 0) {
+    return null;
+  }
+
   return (
     <section 
       id="faq"
@@ -82,15 +105,12 @@ export default function FAQSection({ t }) {
           </p>
         </div>
 
-        {/* FAQ Items */}
-        <div className="space-y-4" itemScope itemType="https://schema.org/FAQPage">
+        {/* FAQ Items - SIN schema microdata (evita duplicación) */}
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
             <article 
               key={index}
               className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-200"
-              itemScope
-              itemProp="mainEntity"
-              itemType="https://schema.org/Question"
             >
               <button
                 onClick={() => toggleFAQ(index)}
@@ -100,7 +120,6 @@ export default function FAQSection({ t }) {
               >
                 <h3 
                   className="text-base sm:text-lg font-semibold text-gray-900 pr-4 flex-1"
-                  itemProp="name"
                 >
                   {faq.question}
                 </h3>
@@ -117,14 +136,8 @@ export default function FAQSection({ t }) {
                 <div 
                   id={`faq-answer-${index}`}
                   className="px-5 sm:px-6 pb-4 sm:pb-5 pt-0"
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
                 >
-                  <p 
-                    className="text-sm sm:text-base text-gray-700 leading-relaxed"
-                    itemProp="text"
-                  >
+                  <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>

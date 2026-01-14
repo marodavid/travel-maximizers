@@ -4,9 +4,12 @@ import App from './App.jsx'
 import './index.css'
 import { initGA } from './utils/analytics';
 
+if (import.meta.env.PROD) {
+  initGA();
+}
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
 )
-initGA();
