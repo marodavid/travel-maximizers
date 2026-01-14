@@ -74,7 +74,7 @@ export default function TravelMaximizers() {
   return (
     <HelmetProvider>
       {/* SEO Meta Tags & Structured Data */}
-      <SEOHead 
+      <SEOHead
         language={language}
         translations={t}
       />
@@ -83,7 +83,7 @@ export default function TravelMaximizers() {
 
       <div className="min-h-screen bg-white">
         {/* Header - Always visible (SEO Critical) */}
-        <Header 
+        <Header
           t={t}
           language={language}
           onLanguageChange={handleLanguageChange}
@@ -92,33 +92,36 @@ export default function TravelMaximizers() {
         {/* Main Content */}
         <main>
           {/* Hero Section - Critical, no lazy loading */}
-          <HeroSection 
+          <HeroSection
             t={t}
             onContactClick={openForm}
           />
 
           {/* Below-the-fold sections - Lazy loaded */}
           <Suspense fallback={<SectionLoader />}>
-            <AboutSection 
+            <AboutSection
               t={t}
               onContactClick={openForm}
             />
 
             {/* <VideoSection t={t} /> */}
 
-            <ServicesSection 
+            <ServicesSection
               t={t}
               onContactClick={openForm}
             />
 
-            <DestinationsSection t={t} />
+            <DestinationsSection
+              t={t}
+              onContactClick={openForm}
+            />
 
             {/* <TestimonialsSection t={t} /> */}
 
             {/* FAQ Section - Critical for SEO (Featured Snippets) */}
             <FAQSection t={t} />
 
-            <CTASection 
+            <CTASection
               t={t}
               onContactClick={openForm}
             />
@@ -126,13 +129,13 @@ export default function TravelMaximizers() {
         </main>
 
         {/* Footer - Always visible (SEO Critical) */}
-        <Footer 
+        <Footer
           t={t}
           onContactClick={openForm}
         />
 
         {/* Contact Form Modal */}
-        <ContactFormModal 
+        <ContactFormModal
           isOpen={isFormOpen}
           onClose={closeForm}
           t={t}

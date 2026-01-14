@@ -11,8 +11,9 @@
  * 
  * @param {Object} props
  * @param {Object} props.t - Traducciones del idioma actual
+ * @param {Function} props.onContactClick - Callback para abrir el formulario de contacto
  */
-export default function DestinationsSection({ t }) {
+export default function DestinationsSection({ t, onContactClick }) {
   const destinationKeys = [
     "italia",
     "jordania",
@@ -27,6 +28,7 @@ export default function DestinationsSection({ t }) {
     "austria",
     "japon",
     "oktoberfest",
+    "mundo",
   ];
 
   // ✅ Función helper para obtener imagen de Vite
@@ -35,8 +37,8 @@ export default function DestinationsSection({ t }) {
   };
 
   return (
-    <section 
-      id="suggested-destinations" 
+    <section
+      id="suggested-destinations"
       className="w-full py-12 md:py-24 lg:py-32"
       aria-labelledby="destinations-heading"
     >
@@ -44,7 +46,7 @@ export default function DestinationsSection({ t }) {
         {/* Header */}
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
-            <h2 
+            <h2
               id="destinations-heading"
               className="text-3xl font-bold tracking-tighter sm:text-5xl font-headline"
             >
@@ -66,8 +68,8 @@ export default function DestinationsSection({ t }) {
             const imageUrl = getImageUrl(key);
 
             return (
-              <article 
-                key={key} 
+              <article
+                key={key}
                 className="group h-96 w-full [perspective:1000px]"
               >
                 <div className="relative h-full w-full rounded-xl shadow-lg transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
@@ -101,6 +103,13 @@ export default function DestinationsSection({ t }) {
                       <p className="mt-4 text-base text-gray-200">
                         {dest.description}
                       </p>
+
+                      <button
+                        onClick={onContactClick}
+                        className="mt-6 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+                      >
+                        {key === 'mundo' ? t.suggestedDestinations.customButton : t.suggestedDestinations.consultButton}
+                      </button>
                     </div>
                   </div>
 
