@@ -101,6 +101,7 @@ export default function TravelMaximizers() {
           <Suspense fallback={<SectionLoader />}>
             <AboutSection
               t={t}
+              language={language}
               onContactClick={openForm}
             />
 
