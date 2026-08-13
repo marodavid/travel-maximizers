@@ -1,25 +1,68 @@
 import { useState } from 'react';
 
+// Prefijo con los nombres, según idioma
+const NAME_PREFIX = {
+  es: 'Laura y David',
+  en: 'Laura and David',
+  de: 'Laura und David'
+};
+
+// Descripción de cada foto (a partir del slug del archivo: aboutUs-<slug>.ext), por idioma
+const PHOTO_PHRASES = {
+  Buceando: { es: 'buceando', en: 'diving', de: 'beim Tauchen' },
+  Colombia: { es: 'en Colombia', en: 'in Colombia', de: 'in Kolumbien' },
+  Colombia2: { es: 'en Colombia', en: 'in Colombia', de: 'in Kolumbien' },
+  Colonia: { es: 'en Colonia, Alemania', en: 'in Cologne, Germany', de: 'in Köln, Deutschland' },
+  Italia: { es: 'en Italia', en: 'in Italy', de: 'in Italien' },
+  Izmir: { es: 'en Esmirna, Turquía', en: 'in Izmir, Turkey', de: 'in Izmir, Türkei' },
+  Japan: { es: 'en Japón', en: 'in Japan', de: 'in Japan' },
+  KualaLumpur: { es: 'en Kuala Lumpur', en: 'in Kuala Lumpur', de: 'in Kuala Lumpur' },
+  MachuPicchu: { es: 'en Machu Picchu, Perú', en: 'at Machu Picchu, Peru', de: 'bei Machu Picchu, Peru' },
+  Malta: { es: 'en Malta', en: 'in Malta', de: 'auf Malta' },
+  Piramides: { es: 'en las pirámides de Egipto', en: 'at the pyramids of Egypt', de: 'bei den Pyramiden von Ägypten' },
+  laVida: { es: 'disfrutando de la vida viajera', en: 'enjoying travel life', de: 'beim Genießen des Reiselebens' },
+  laVida02: { es: 'disfrutando de la vida viajera', en: 'enjoying travel life', de: 'beim Genießen des Reiselebens' },
+  luxemburgo: { es: 'en Luxemburgo', en: 'in Luxembourg', de: 'in Luxemburg' },
+  panama: { es: 'en Panamá', en: 'in Panama', de: 'in Panama' },
+  talandia: { es: 'en Tailandia', en: 'in Thailand', de: 'in Thailand' },
+  tulipanes: { es: 'entre los tulipanes de Holanda', en: 'among the tulip fields of Holland', de: 'zwischen den Tulpenfeldern Hollands' },
+  vinos: { es: 'en una cata de vinos', en: 'at a wine tasting', de: 'bei einer Weinprobe' }
+};
+
+function getPhotoAlt(path, language) {
+  const lang = PHOTO_PHRASES[Object.keys(PHOTO_PHRASES).find(slug =>
+    path.includes(`aboutUs-${slug}.`)
+  )]?.[language];
+  const namePrefix = NAME_PREFIX[language] || NAME_PREFIX.es;
+  return lang ? `${namePrefix} ${lang}` : namePrefix;
+}
+
 /**
  * AboutSection Component - Quiénes somos con galería de fotos
- * 
+ *
  * SEO Features:
  * - H2 descriptivo con keywords
  * - Contenido rico en texto (historia de marca)
  * - Images con alt text apropiado
  * - Stats para aumentar credibilidad
  * - Schema.org ready (Organization/Person)
- * 
+ *
  * @param {Object} props
  * @param {Object} props.t - Traducciones del idioma actual
+ * @param {string} props.language - Idioma actual ('es' | 'en' | 'de')
  * @param {Function} props.onContactClick - Callback para abrir formulario
  */
-export default function AboutSection({ t, onContactClick }) {
+export default function AboutSection({ t, language = 'es', onContactClick }) {
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-  
+
   // Cargar fotos dinámicamente
   const imageModules = import.meta.glob('/src/assets/images/about-us/*.{jpg,jpeg,png,webp}', { eager: true });
-  const photos = Object.values(imageModules).map(mod => mod.default);
+  const photos = Object.entries(imageModules)
+    .sort(([pathA], [pathB]) => pathA.localeCompare(pathB))
+    .map(([path, mod]) => ({
+      src: mod.default,
+      alt: getPhotoAlt(path, language)
+    }));
 
   const nextPhoto = () => {
     setCurrentPhotoIndex((prev) => (prev + 1) % photos.length);
@@ -117,11 +160,12 @@ export default function AboutSection({ t, onContactClick }) {
             <div className="relative">
               {/* Main Photo */}
               <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
-                <img 
-                  src={photos[currentPhotoIndex]} 
-                  alt={`Laura y David viajando - Foto ${currentPhotoIndex + 1}`}
+                <img
+                  src={photos[currentPhotoIndex].src}
+                  alt={photos[currentPhotoIndex].alt}
                   className="w-full h-full object-cover transition-opacity duration-500"
-                  loading="lazy"
+                  loading={currentPhotoIndex === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={currentPhotoIndex === 0 ? 'high' : 'auto'}
                 />
               </div>
               
@@ -178,11 +222,11 @@ export default function AboutSection({ t, onContactClick }) {
                       ? 'ring-2 ring-emerald-600 ring-offset-2' 
                       : 'opacity-60 hover:opacity-100'
                   }`}
-                  aria-label={`Ver foto ${index + 1}`}
+                  aria-label={photo.alt}
                 >
-                  <img 
-                    src={photo} 
-                    alt={`Miniatura ${index + 1}`}
+                  <img
+                    src={photo.src}
+                    alt={photo.alt}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
