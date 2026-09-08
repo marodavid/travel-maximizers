@@ -27,12 +27,13 @@ const translations = {
       }
     },
     hero: {
-      title1: 'Maximiza tus',
-      title2: 'Experiencias de Viaje',
-      tagline: 'Tu solo viaja, nosotros te lo organizamos todo a medida',
-      description: 'Consultoría personalizada para crear itinerarios únicos, optimizar presupuestos y descubrir experiencias auténticas que transformarán tu forma de viajar.',
-      cta1: 'Consulta Gratuita',
-      cta2: 'Ver Servicios'
+      title1: 'Tu viaje a medida,',
+      title2: 'sin horas de búsqueda ni estrés',
+      tagline: 'Para parejas y familias ocupadas que quieren aprovechar cada día de sus vacaciones',
+      description: 'Diseñamos tu itinerario completo —vuelos, hoteles, traslados y experiencias— adaptado a tu tiempo, presupuesto y forma de viajar.',
+      cta1: 'Solicita una llamada gratuita',
+      cta2: 'Ver cómo funciona',
+      trustSignals: ['60+ países visitados', '15 años viajando', 'Recomendaciones independientes', 'Soporte durante el viaje']
     },
     services: {
       title: 'Nuestros Servicios',
@@ -282,12 +283,13 @@ const translations = {
       }
     },
     hero: {
-      title1: 'Maximize your',
-      title2: 'Travel Experiences',
-      tagline: 'You just travel, we organize everything tailored for you',
-      description: 'Personalized consulting to create unique itineraries, optimize budgets and discover authentic experiences that will transform your way of traveling.',
-      cta1: 'Free Consultation',
-      cta2: 'View Services'
+      title1: 'Your tailor-made trip,',
+      title2: 'without hours of research or stress',
+      tagline: 'For busy couples and families who want to make every vacation day count',
+      description: 'We design your complete itinerary —flights, hotels, transfers and experiences— around your time, budget and travel style.',
+      cta1: 'Request a free call',
+      cta2: 'See how it works',
+      trustSignals: ['60+ countries visited', '15 years of travel', 'Independent recommendations', 'Support during your trip']
     },
     services: {
       title: 'Our Services',
@@ -532,12 +534,13 @@ const translations = {
       }
     },
     hero: {
-      title1: 'Maximieren Sie Ihre',
-      title2: 'Reiseerlebnisse',
-      tagline: 'Sie reisen einfach, wir organisieren alles maßgeschneidert für Sie',
-      description: 'Persönliche Beratung zur Erstellung einzigartiger Reiserouten, Optimierung von Budgets und Entdeckung authentischer Erlebnisse, die Ihre Art zu reisen transformieren werden.',
-      cta1: 'Kostenlose Beratung',
-      cta2: 'Dienstleistungen ansehen'
+      title1: 'Ihre maßgeschneiderte Reise,',
+      title2: 'ohne stundenlange Suche und Stress',
+      tagline: 'Für vielbeschäftigte Paare und Familien, die jeden Urlaubstag optimal nutzen möchten',
+      description: 'Wir planen Ihre komplette Reise —Flüge, Hotels, Transfers und Erlebnisse— passend zu Ihrer Zeit, Ihrem Budget und Ihrem Reisestil.',
+      cta1: 'Kostenloses Gespräch anfragen',
+      cta2: 'So funktioniert es',
+      trustSignals: ['60+ bereiste Länder', '15 Jahre Reiseerfahrung', 'Unabhängige Empfehlungen', 'Betreuung während der Reise']
     },
     services: {
       title: 'Unsere Dienstleistungen',
